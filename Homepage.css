@@ -136,7 +136,7 @@ body {
 }
 
 .logo-text {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
   font-family: 'Equinox', sans-serif;
   margin: 0;
@@ -156,7 +156,7 @@ body {
 }
 
 .tagline {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: 'Equinox', sans-serif;
   font-weight: 400;
   color: rgba(148, 163, 184, 0.8);
@@ -502,7 +502,7 @@ body {
 .navbar-text.left-text img {
   height: 180px;
   width: auto;
-  max-width: 400px;
+  max-width: 500px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
