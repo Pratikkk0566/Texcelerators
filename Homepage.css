@@ -241,22 +241,23 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-left: -7rem
 }
 
 .hamburger-btn {
   background: rgba(37, 99, 235, 0.1);
   border: 2px solid rgba(37, 99, 235, 0.3);
   cursor: pointer;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 15px;
+  border-radius: 8px;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
 }
 
 .hamburger-btn:hover {
@@ -266,8 +267,8 @@ body {
 }
 
 .hamburger-line {
-  width: 20px;
-  height: 3px;
+  width: 30px;
+  height: 4px;
   background-color: var(--foreground);
   border-radius: 2px;
   transition: all 0.3s ease;
@@ -500,11 +501,12 @@ body {
 }
 
 .navbar-text.left-text img {
-  height: 180px;
+  height: 220px;
   width: auto;
   max-width: 500px;
   object-fit: contain;
   transition: transform 0.3s ease;
+  margin-left: .5rem;
 }
 
 

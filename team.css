@@ -1299,7 +1299,7 @@
   
   /* Base team card styles */
   .team-card {
-    background: linear-gradient(145deg, #1F2937E6, #1F2937CC);
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), #1F2937, rgba(15, 23, 42, 0.8));
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -1988,6 +1988,44 @@
           grid-template-columns: 1fr;
         }
       }
+
+      
+.social-link {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.social-link::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.social-link:hover::after {
+  opacity: 1;
+}
 
       .bg-instagram {
         background-color: #c32aa3;
