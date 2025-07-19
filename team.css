@@ -159,7 +159,8 @@
   }
   
   .logo-text {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: bold;
     font-family: 'Equinox', sans-serif;
     margin: 0;
   }
@@ -234,6 +235,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-left: -7rem;
   }
   
   .hamburger-btn {
@@ -366,9 +368,9 @@
 .navbar-text.left-text img {
   height: 220px; /* Adjust height as needed */
   width: auto; /* Maintain aspect ratio */
-  max-width: 400px; /* Maximum width to prevent overflow */
+  max-width: 500px; /* Maximum width to prevent overflow */
   object-fit: contain;
-  margin-left: -7.5rem; /* Keeps the Banner towards the left */
+  margin-left: -6.5rem; /* Keeps the Banner towards the left */
 }
 
 
@@ -1232,7 +1234,8 @@
   /* Category Header Styling */
 .category-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+ margin-top: 3rem;
 }
 
 .category-description {
@@ -1295,7 +1298,7 @@
   
   /* Base team card styles */
   .team-card {
-    background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.8));
+    background: linear-gradient(145deg, #1F2937E6, #1F2937CC);
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
