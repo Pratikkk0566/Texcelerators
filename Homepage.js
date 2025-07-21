@@ -902,5 +902,84 @@ window.addEventListener('resize', function() {
       item.style.zIndex = '';
     });
   }
+
+  // ===== GLASSY HOVER EFFECTS =====
+function initializeGlassyEffects() {
+  // Initialize dynamic mouse-following light effect
+  initializeDynamicGlassyEffect();
+  
+  // Initialize mouse trail effect
+  initializeMouseTrail();
+  
+  // Add glassy hover classes to cards
+  addGlassyHoverClasses();
+}
+
+function initializeDynamicGlassyEffect() {
+  // Target cards for dynamic glassy effect
+  const cards = document.querySelectorAll('.achievement-card, .highlighted-card, .team-card, .testimonial-card');
+  
+  cards.forEach(card => {
+    card.classList.add('glassy-hover-dynamic');
+    
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+      // Set CSS custom properties for mouse position
+      card.style.setProperty('--mouse-x', `${x}%`);
+      card.style.setProperty('--mouse-y', `${y}%`);
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      // Reset mouse position to center when leaving
+      card.style.setProperty('--mouse-x', '50%');
+      card.style.setProperty('--mouse-y', '50%');
+    });
+  });
+}
+
+function initializeMouseTrail() {
+  // Create mouse trail effect
+  document.addEventListener('mousemove', e => {
+    // Only create trail dots occasionally to avoid performance issues
+    if (Math.random() > 0.7) {
+      const dot = document.createElement('div');
+      dot.className = 'trail-dot';
+      dot.style.left = `${e.clientX}px`;
+      dot.style.top = `${e.clientY}px`;
+      document.body.appendChild(dot);
+      
+      // Remove dot after animation
+      setTimeout(() => {
+        if (document.body.contains(dot)) {
+          dot.remove();
+        }
+      }, 600);
+    }
+  });
+}
+
+function addGlassyHoverClasses() {
+  // Add additional hover classes for enhanced effects
+  const cards = document.querySelectorAll('.achievement-card, .highlighted-card, .team-card, .testimonial-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+  });
+}
+
+// Call the glassy effects initialization after DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Add this after your existing initialization calls
+  initializeGlassyEffects();
+});
 });
 
