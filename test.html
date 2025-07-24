@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .testimonial-container {
+            max-width: 1200px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .testimonial-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-slider {
+            background: #1F2937;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            min-height: 500px;
+        }
+
+        .testimonial {
+            display: none;
+            padding: 80px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .testimonial.active {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .testimonial-image {
+            flex-shrink: 0;
+            width: 320px;
+            height: 320px;
+            border-radius: 16px; /* Curved sides instead of circular */
+            overflow: hidden;
+            border: 3px solid #f0f0f0;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-image img {
+            width: 110%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 40px;
+            color: #667eea;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .author-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .author-role {
+            font-size: 16px;
+            color: #2563eb;
+            font-weight: 400;
+        }
+
+        .slider-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #667eea;
+            transform: scale(1.2);
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #667eea;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .testimonial-slider:hover .slider-nav {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slider-nav:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: 5px;
+        }
+
+        .next {
+            right: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .testimonial {
+                padding: 30px 20px;
+            }
+
+            .testimonial.active {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+
+            .testimonial-image {
+                width: 100px;
+                height: 100px;
+                border-radius: 14px; /* Slightly smaller radius for mobile */
+            }
+
+            .testimonial-text {
+                font-size: 16px;
+                padding-left: 15px;
+            }
+
+            .testimonial-text::before {
+                font-size: 30px;
+                top: -5px;
+            }
+
+            .author-name {
+                font-size: 18px;
+            }
+
+            .author-role {
+                font-size: 14px;
+            }
+
+            .slider-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .prev {
+                left: 10px;
+            }
+
+            .next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .testimonial {
+                padding: 20px 15px;
+            }
+
+            .testimonial-slider {
+                min-height: 250px;
+            }
+
+            .testimonial-text {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+    <div class="testimonial-container" id="testimonialContainer">
+        <div class="testimonial-slider" id="testimonialSlider">
+            <div class="testimonial active">
+                <div class="testimonial-image">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/FrPaul.jpg" alt="Dr. Fr. Paul Chandrankunnel">
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-text">
+                        Words of Wisdom are to be Added
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Dr. Fr. Paul Chandrankunnel</div>
+                        <div class="author-role">Director , SVPCET</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-image">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/FrSiju.JPG" alt="Fr. Siju Jose">
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-text">
+                        Words of Wisdom are to be Added
+                        Must be water
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Fr. Siju Jose</div>
+                        <div class="author-role">Financial Administrator , SVPCET</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-image">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/ProfGowardhan.jpg" alt="Dr. Emily Rodriguez">
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-text">
+                        Words of Wisdom are to be Added
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">R.B Gowardhan</div>
+                        <div class="author-role">Institute Mentor, SVPCET</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-image">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/PrVijay.jpg" alt="Dr. Vijay Wadhai">
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-text">
+                       Words of Wisdom are to be Added 
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Dr. Vijay Wadhai</div>
+                        <div class="author-role">Principal , SVPCET</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-image">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/Dr.Rangankar.jpg" alt="Dr. Suresh Rangankar">
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-text">
+                        Words of Wisdom are to be Added
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Dr. Suresh Rangankar</div>
+                        <div class="author-role">HOD , B.VOC</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <button class="slider-nav prev" id="prevBtn">‹</button>
+            <button class="slider-nav next" id="nextBtn">›</button>
+
+            <div class="slider-indicators" id="indicators">
+                <div class="indicator active" data-slide="0"></div>
+                <div class="indicator" data-slide="1"></div>
+                <div class="indicator" data-slide="2"></div>
+                <div class="indicator" data-slide="3"></div>
+                <div class="indicator" data-slide="4"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    <script>
+        class TestimonialSlider {
+            constructor() {
+                this.container = document.getElementById('testimonialContainer');
+                this.slider = document.getElementById('testimonialSlider');
+                this.testimonials = document.querySelectorAll('.testimonial');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                
+                this.currentSlide = 0;
+                this.totalSlides = this.testimonials.length;
+                this.autoplayInterval = null;
+                this.isHovered = false;
+                this.hasShown = false;
+
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.showContainerAfterDelay();
+                this.startAutoplay();
+            }
+
+            setupEventListeners() {
+                // Navigation buttons
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+                // Indicators
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Hover events for autoplay control
+                this.slider.addEventListener('mouseenter', () => {
+                    this.isHovered = true;
+                    this.pauseAutoplay();
+                    this.showContainer(); // Show immediately on hover
+                });
+
+                this.slider.addEventListener('mouseleave', () => {
+                    this.isHovered = false;
+                    this.startAutoplay();
+                });
+
+                // Touch events for mobile
+                let startX = 0;
+                let endX = 0;
+
+                this.slider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    this.pauseAutoplay();
+                });
+
+                this.slider.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+
+                    if (Math.abs(diff) > 50) { // Minimum swipe distance
+                        if (diff > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.prevSlide();
+                        }
+                    }
+
+                    if (!this.isHovered) {
+                        this.startAutoplay();
+                    }
+                });
+            }
+
+            showContainerAfterDelay() {
+                // Show container after 5 seconds if not already shown
+                setTimeout(() => {
+                    if (!this.hasShown) {
+                        this.showContainer();
+                    }
+                }, 5000);
+            }
+
+            showContainer() {
+                if (!this.hasShown) {
+                    this.container.classList.add('visible');
+                    this.hasShown = true;
+                }
+            }
+
+            goToSlide(index) {
+                // Hide current slide
+                this.testimonials[this.currentSlide].classList.remove('active');
+                this.indicators[this.currentSlide].classList.remove('active');
+
+                // Update current slide
+                this.currentSlide = index;
+
+                // Show new slide
+                this.testimonials[this.currentSlide].classList.add('active');
+                this.indicators[this.currentSlide].classList.add('active');
+            }
+
+            nextSlide() {
+                const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(nextIndex);
+            }
+
+            prevSlide() {
+                const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(prevIndex);
+            }
+
+            startAutoplay() {
+                this.pauseAutoplay(); // Clear any existing interval
+                this.autoplayInterval = setInterval(() => {
+                    if (!this.isHovered) {
+                        this.nextSlide();
+                    }
+                }, 5000);
+            }
+
+            pauseAutoplay() {
+                if (this.autoplayInterval) {
+                    clearInterval(this.autoplayInterval);
+                    this.autoplayInterval = null;
+                }
+            }
+        }
+
+        // Initialize the slider when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new TestimonialSlider();
+        });
+    </script>
+</body>
+</html>

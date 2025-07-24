@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #f8fafc;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 1rem;
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.testimonials-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5rem;
+}
+
+@media (min-width: 768px) {
+    .testimonials-container {
+        padding: 5rem 2rem;
+    }
+    .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .testimonials-container {
+        padding: 5rem 3rem;
+    }
+}
+
+/* Images Container */
+.images-container {
+    position: relative;
+    height: 600px;
+    width: 100%;
+}
+
+.testimonial-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    object-fit: contain;
+    object-position: center;
+    user-select: none;
+    transform-origin: bottom;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.7;
+    transform: scale(0.95) rotateY(5deg);
+    z-index: 10;
+}
+
+.testimonial-image.active {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    z-index: 40;
+}
+
+.testimonial-image.entering {
+    animation: imageEnter 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes imageEnter {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateZ(-100px) rotateY(10deg);
+    }
+    50% {
+        transform: scale(1) translateY(-80px) rotateY(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0px) rotateY(0deg);
+    }
+}
+
+/* Content Container */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.content-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-wrapper.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.testimonial-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-designation {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.testimonial-quote {
+    font-size: 1.125rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.quote-word {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(5px);
+    animation: wordReveal 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes wordReveal {
+    to {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+    }
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .controls {
+        margin-top: 0;
+    }
+}
+
+.control-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: #f3f4f6;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.control-button:hover {
+    background: #e5e7eb;
+    transform: scale(1.1);
+}
+
+.control-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #000;
+    transition: transform 0.3s ease;
+}
+
+.control-button:hover .arrow-left {
+    transform: rotate(12deg);
+}
+
+.control-button:hover .arrow-right {
+    transform: rotate(-12deg);
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #0f172a;
+    }
+
+    .testimonial-name {
+        color: #fff;
+    }
+
+    .testimonial-designation {
+        color: #a3a3a3;
+    }
+
+    .testimonial-quote {
+        color: #d4d4d8;
+    }
+
+    .control-button {
+        background: #262626;
+    }
+
+    .control-button:hover {
+        background: #404040;
+    }
+
+    .control-button svg {
+        color: #a3a3a3;
+    }
+}

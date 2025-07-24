@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===== INITIALIZATION =====
   initializeNavigation();
   initializeHeroSlideshow();
+  initializeTestimonialsSlider();
   initializeAchievements();
   initializeBotCarousel();
   initializeAnimations();
@@ -983,3 +984,147 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 });
 
+// ===== TESTIMONIALS SLIDER CLASS =====
+class TestimonialSlider {
+  constructor() {
+      this.container = document.getElementById('testimonialContainer');
+      this.slider = document.getElementById('testimonialSlider');
+      this.testimonials = document.querySelectorAll('.testimonial');
+      this.indicators = document.querySelectorAll('.indicator');
+      this.prevBtn = document.getElementById('prevBtn');
+      this.nextBtn = document.getElementById('nextBtn');
+      
+      this.currentSlide = 0;
+      this.totalSlides = this.testimonials.length;
+      this.autoplayInterval = null;
+      this.isHovered = false;
+      this.hasShown = false;
+
+      this.init();
+  }
+
+  init() {
+      this.setupEventListeners();
+      this.showContainerAfterDelay();
+      this.startAutoplay();
+  }
+
+  setupEventListeners() {
+      if (!this.prevBtn || !this.nextBtn) return;
+      
+      // Navigation buttons
+      this.prevBtn.addEventListener('click', () => this.prevSlide());
+      this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+      // Indicators
+      this.indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => this.goToSlide(index));
+      });
+
+      if (!this.slider) return;
+      
+      // Hover events for autoplay control
+      this.slider.addEventListener('mouseenter', () => {
+          this.isHovered = true;
+          this.pauseAutoplay();
+          this.showContainer();
+      });
+
+      this.slider.addEventListener('mouseleave', () => {
+          this.isHovered = false;
+          this.startAutoplay();
+      });
+
+      // Touch events for mobile
+      let startX = 0;
+      let endX = 0;
+
+      this.slider.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          this.pauseAutoplay();
+      });
+
+      this.slider.addEventListener('touchend', (e) => {
+          endX = e.changedTouches[0].clientX;
+          const diff = startX - endX;
+
+          if (Math.abs(diff) > 50) {
+              if (diff > 0) {
+                  this.nextSlide();
+              } else {
+                  this.prevSlide();
+              }
+          }
+
+          if (!this.isHovered) {
+              this.startAutoplay();
+          }
+      });
+  }
+
+  showContainerAfterDelay() {
+      setTimeout(() => {
+          if (!this.hasShown) {
+              this.showContainer();
+          }
+      }, 2000);
+  }
+
+  showContainer() {
+      if (!this.hasShown && this.container) {
+          this.container.classList.add('visible');
+          this.hasShown = true;
+      }
+  }
+
+  goToSlide(index) {
+      if (this.testimonials[this.currentSlide]) {
+          this.testimonials[this.currentSlide].classList.remove('active');
+      }
+      if (this.indicators[this.currentSlide]) {
+          this.indicators[this.currentSlide].classList.remove('active');
+      }
+
+      this.currentSlide = index;
+
+      if (this.testimonials[this.currentSlide]) {
+          this.testimonials[this.currentSlide].classList.add('active');
+      }
+      if (this.indicators[this.currentSlide]) {
+          this.indicators[this.currentSlide].classList.add('active');
+      }
+  }
+
+  nextSlide() {
+      const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+      this.goToSlide(nextIndex);
+  }
+
+  prevSlide() {
+      const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+      this.goToSlide(prevIndex);
+  }
+
+  startAutoplay() {
+      this.pauseAutoplay();
+      this.autoplayInterval = setInterval(() => {
+          if (!this.isHovered) {
+              this.nextSlide();
+          }
+      }, 5000);
+  }
+
+  pauseAutoplay() {
+      if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+          this.autoplayInterval = null;
+      }
+  }
+}
+
+// Initialize testimonials slider
+function initializeTestimonialsSlider() {
+  if (document.getElementById('testimonialContainer')) {
+      new TestimonialSlider();
+  }
+}
