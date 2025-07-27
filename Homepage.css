@@ -2052,20 +2052,20 @@ body.sidebar-active #main-header {
   opacity: 1;
 }
 
-.bg-facebook {
-  background-color: #1877f2;
-}
-
-.bg-twitter {
-  background-color: #1da1f2;
-}
-
 .bg-youtube {
   background-color: #ff0000;
 }
 
 .bg-instagram {
   background-color: #c32aa3;
+}
+
+.bg-whatsapp {
+  background-color: #25D366;
+}
+
+.bg-gmail {
+  background-color: #D14836; /* Gmail red */
 }
 
 /* Footer */
@@ -3333,4 +3333,24 @@ animation: slideIn 0.5s ease forwards;
         width: 120px;
         height: 120px;
     }
+}
+
+.category-description {
+  font-size: 1.2rem;
+  color: var(--muted-foreground);
+  max-width: 600px;
+  margin: 1rem auto 0;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.9;
+  padding-bottom: 3rem;
+  padding-top: -1rem;
+}
+
+@media (max-width: 768px) {
+  .category-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+    max-width: 100%;
+  }
 }
