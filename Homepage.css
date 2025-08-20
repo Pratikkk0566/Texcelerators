@@ -1098,7 +1098,7 @@ body.sidebar-active #main-header {
   right: 0px;
   width: 120px;
   height: 120px;
-  background: rgb(0, 0, 0);
+  background: rgb(255, 252, 252);
   border-radius: 12px;
   border: 3px solid var(--primary);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
