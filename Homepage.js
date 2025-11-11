@@ -135,7 +135,7 @@ function initializeNavigation() {
     
     // Sidebar activation logic (desktop only)
     if (window.innerWidth > 768) {
-      const testimonialSection = document.getElementById('testimonial');
+      const testimonialSection = document.getElementById('teamsTestimonialContainer');
       
       if (testimonialSection) {
         const testimonialTop = testimonialSection.offsetTop - 200;
