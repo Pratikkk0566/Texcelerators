@@ -1,50 +1,98 @@
-// ===== TEXCELERATORS ROBOTICS CLUB WEBSITE =====
-// Enhanced JavaScript with all functionality from both files merged
+/* ===============================
+   TEXCELERATORS ROBOTICS CLUB - HOMEPAGE
+   ===============================
+   
+   This file handles all interactive functionality for the Homepage including:
+   - Navigation (hamburger menu, sidebar, scroll spy)
+   - Hero Slideshow (automatic image carousel)
+   - Testimonials Sliders (faculty and team testimonials)
+   - Achievements (animated counters)
+   - Bot Carousel (robot showcase with autoplay)
+   - Scroll Animations (fade-in effects)
+   - Story Playback (interactive story modals)
+   - Form Handling (contact form submission)
+   
+   TABLE OF CONTENTS:
+   1. Page Initialization
+   2. Navigation System
+   3. Hero Slideshow
+   4. Testimonials Sliders
+   5. Teams Testimonials
+   6. Achievements Section
+   7. Bot Carousel
+   8. Scroll Animations
+   9. Form Handling
+   10. Story Playback
+   11. Utility Functions
+   =============================== */
 
+/* ===============================
+   1. PAGE INITIALIZATION
+   =============================== 
+   
+   This section runs when the page loads and initializes
+   all the interactive features in the correct order.
+*/
 document.addEventListener('DOMContentLoaded', function() {
-  // ===== INITIALIZATION =====
-  initializeNavigation();
-  initializeHeroSlideshow();
-  initializeTestimonialsSlider();
-  initializeTeamsTestimonials();
-  initializeAchievements();
-  initializeBotCarousel();
-  initializeAnimations();
-  initializeFormHandling();
-  initializeStoryPlayback();
+  // Initialize all main features
+  initializeNavigation();           // Setup hamburger menu, sidebar, and navigation links
+  initializeHeroSlideshow();        // Setup automatic hero image slideshow
+  initializeTestimonialsSlider();   // Setup faculty testimonials slider
+  initializeTeamsTestimonials();    // Setup team testimonials slider
+  initializeAchievements();         // Setup animated achievement counters
+  initializeBotCarousel();          // Setup robot showcase carousel
+  initializeAnimations();           // Setup fade-in animations on scroll
+  initializeFormHandling();         // Setup contact form submission
+  initializeStoryPlayback();        // Setup interactive story modals
 });
 
-// ===== NAVIGATION SYSTEM =====
+/* ===============================
+   2. NAVIGATION SYSTEM
+   =============================== 
+   
+   Handles all navigation functionality including:
+   - Hamburger menu (mobile dropdown menu)
+   - Sidebar (desktop fixed navigation)
+   - Active section highlighting (scroll spy)
+   - Smooth scrolling to sections
+   - Responsive behavior (mobile vs desktop)
+*/
 function initializeNavigation() {
-  // DOM Elements
-  const header = document.getElementById('main-header');
-  const sidebar = document.getElementById('sidebar');
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
-  const mainContent = document.getElementById('main-content');
-  const body = document.body;
+  // ===== DOM ELEMENTS =====
+  // Get references to all navigation-related HTML elements
+  const header = document.getElementById('main-header');           // Top navigation bar
+  const sidebar = document.getElementById('sidebar');              // Left sidebar (desktop only)
+  const hamburgerBtn = document.getElementById('hamburger-btn');   // Mobile menu button (3 lines)
+  const navMenu = document.getElementById('nav-menu');             // Dropdown menu content
+  const mainContent = document.getElementById('main-content');     // Main page content
+  const body = document.body;                                      // Body element for adding classes
   
-  // Navigation links
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sidebarLinks = document.querySelectorAll('.sidebar-link');
-  const sections = document.querySelectorAll('section[id]');
+  // Get all navigation links (both in dropdown and sidebar)
+  const navLinks = document.querySelectorAll('.nav-link');         // Links in dropdown menu
+  const sidebarLinks = document.querySelectorAll('.sidebar-link'); // Links in sidebar
+  const sections = document.querySelectorAll('section[id]');       // All page sections with IDs
   
-  // State variables
-  let isMenuOpen = false;
-  let isSidebarMode = false;
-  let lastScrollTop = 0;
+  // ===== STATE VARIABLES =====
+  // Track the current state of navigation elements
+  let isMenuOpen = false;        // Is the mobile dropdown menu currently open?
+  let isSidebarMode = false;     // Is the sidebar currently visible? (desktop only)
+  let lastScrollTop = 0;         // Last scroll position (for scroll direction detection)
   
-  // Setup event listeners
-  setupNavigationEvents();
-  updateActiveSection();
+  // ===== INITIALIZATION =====
+  // Setup all event listeners and initial state
+  setupNavigationEvents();       // Attach click and scroll listeners
+  updateActiveSection();         // Highlight the current section on page load
   
+  /* ===== SETUP EVENT LISTENERS =====
+     Attach all click, scroll, and resize event handlers
+  */
   function setupNavigationEvents() {
-    // Hamburger menu toggle
+    // Hamburger menu toggle - Opens/closes mobile dropdown menu
     if (hamburgerBtn) {
       hamburgerBtn.addEventListener('click', toggleMenu);
     }
     
-    // Navigation link clicks
+    // Navigation link clicks - Handle clicks on menu items
     navLinks.forEach(link => {
       link.addEventListener('click', handleNavClick);
     });
@@ -267,10 +315,19 @@ function initializeNavigation() {
   };
 }
 
-// ===== HERO SLIDESHOW =====
+/* ===============================
+   3. HERO SLIDESHOW
+   =============================== 
+   
+   Automatic image carousel for the hero section with:
+   - Auto-advance every 5 seconds
+   - Manual navigation (arrows and dots)
+   - Pause on hover
+   - Smooth fade transitions
+*/
 function initializeHeroSlideshow() {
-  const heroSlides = document.querySelectorAll('.slide');
-  const slideDots = document.querySelectorAll('.slide-dot');
+  const heroSlides = document.querySelectorAll('.slide');        // All slide elements
+  const slideDots = document.querySelectorAll('.slide-dot');     // Navigation dots
   const prevSlideBtn = document.querySelector('.slide-arrow.prev');
   const nextSlideBtn = document.querySelector('.slide-arrow.next');
   
@@ -346,10 +403,17 @@ function initializeHeroSlideshow() {
   }
 }
 
-// ===== ACHIEVEMENTS SECTION =====
+/* ===============================
+   6. ACHIEVEMENTS SECTION
+   =============================== 
+   
+   Animated counter that counts up from 0 to target value
+   when the achievements section scrolls into view.
+   Creates an engaging visual effect for statistics.
+*/
 function initializeAchievements() {
-  const counters = document.querySelectorAll('.achievement-count');
-  const animationDuration = 2000;
+  const counters = document.querySelectorAll('.achievement-count');  // All counter elements
+  const animationDuration = 2000;  // Animation duration in milliseconds (2 seconds)
   let hasAnimated = false;
   
   function animateCounter(counter, targetValue) {
@@ -396,10 +460,20 @@ function initializeAchievements() {
   checkCountersInView(); // Initial check
 }
 
-// ===== ENHANCED BOT CAROUSEL =====
+/* ===============================
+   7. BOT CAROUSEL
+   =============================== 
+   
+   Interactive robot showcase carousel with:
+   - Responsive layout (1/2/3 columns based on screen size)
+   - Autoplay with pause/play control
+   - Manual navigation (arrows and dots)
+   - Touch/swipe support for mobile
+   - Fullscreen mode
+*/
 function initializeBotCarousel() {
-  const botsSlider = document.querySelector('.bots-slider');
-  const botSlides = document.querySelectorAll('.bot-slide');
+  const botsSlider = document.querySelector('.bots-slider');     // Slider container
+  const botSlides = document.querySelectorAll('.bot-slide');     // Individual bot cards
   const botDots = document.querySelectorAll('.bot-dot');
   const prevBotBtn = document.querySelector('.bot-arrow.prev');
   const nextBotBtn = document.querySelector('.bot-arrow.next');
@@ -717,8 +791,26 @@ function initializeFormHandling() {
   }
 }
 
-// ===== UTILITY FUNCTIONS =====
-// Debounce function for performance optimization
+/* ===============================
+   11. UTILITY FUNCTIONS
+   =============================== 
+   
+   Helper functions used throughout the code for:
+   - Performance optimization (throttle, debounce)
+   - Preventing excessive function calls on scroll/resize events
+*/
+
+/* ===== DEBOUNCE FUNCTION =====
+   Delays function execution until after a pause in events.
+   
+   Example: If window is being resized, wait until resizing stops
+   before running the handler (prevents hundreds of unnecessary calls).
+   
+   Use case: Resize, input, and search event handlers
+   
+   @param {Function} func - The function to debounce
+   @param {Number} wait - Time (ms) to wait after last event
+*/
 function debounce(func, wait) {
   let timeout;
   return function executedFunction(...args) {
@@ -731,16 +823,26 @@ function debounce(func, wait) {
   };
 }
 
-// Throttle function for scroll events
+/* ===== THROTTLE FUNCTION =====
+   Limits how often a function can be called.
+   
+   Example: If a scroll event fires 100 times per second,
+   throttle ensures the handler only runs once every 16ms (60fps).
+   
+   Use case: Scroll and resize event handlers
+   
+   @param {Function} func - The function to throttle
+   @param {Number} limit - Minimum time (ms) between function calls
+*/
 function throttle(func, limit) {
-  let inThrottle;
+  let inThrottle;  // Flag to track if we're in throttle period
   return function() {
     const args = arguments;
     const context = this;
     if (!inThrottle) {
-      func.apply(context, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
+      func.apply(context, args);  // Execute function
+      inThrottle = true;          // Set throttle flag
+      setTimeout(() => inThrottle = false, limit);  // Reset after limit
     }
   }
 }
@@ -1271,8 +1373,22 @@ function initializeTeamsTestimonials() {
   }
 }
 
-// ===== STORY PLAYBACK FUNCTIONALITY =====
-// Handles interactive story moments and playback
+/* ===============================
+   10. STORY PLAYBACK FUNCTIONALITY
+   =============================== 
+   
+   Interactive story cards that open modal popups with full story content.
+   Features:
+   - Click to open story modal
+   - Keyboard support (Enter/Space to open, Escape to close)
+   - Smooth animations
+   - Full story text with images and tags
+*/
+
+/* ===== PLAY STORY =====
+   Opens a modal with the full story content
+   @param {String} storyId - ID of the story to display
+*/
 function playStory(storyId) {
   const storyCard = document.querySelector(`[data-story="${storyId}"]`);
   
@@ -1416,8 +1532,11 @@ function closeStoryModal() {
   }
 }
 
+/* ===== INITIALIZE STORY PLAYBACK =====
+   Setup click and keyboard handlers for all story cards
+*/
 function initializeStoryPlayback() {
-  // Add click handlers for story cards
+  // Get all story card elements
   const storyCards = document.querySelectorAll('.story-card');
   
   storyCards.forEach(card => {
