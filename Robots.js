@@ -1,21 +1,54 @@
-// ===== TEXCELERATORS ROBOTICS CLUB WEBSITE =====
-// Enhanced JavaScript with all functionality from both files merged
+/* ===============================
+   TEXCELERATORS ROBOTICS CLUB - ROBOTS PAGE
+   ===============================
+   
+   This file handles all interactive functionality for the Robots page including:
+   - Navigation (hamburger menu, sidebar, scroll spy)
+   - Scroll Animations (fade-in effects for robot cards)
+   - Story Playback (interactive workshop story modals)
+   - Category Filtering (filter robots by type)
+   
+   TABLE OF CONTENTS:
+   1. Page Initialization
+   2. Navigation System
+   3. Scroll Animations
+   4. Story Playback
+   5. Utility Functions
+   =============================== */
 
+/* ===============================
+   1. PAGE INITIALIZATION
+   =============================== 
+   
+   This section runs when the page loads and initializes
+   all the interactive features in the correct order.
+*/
 document.addEventListener('DOMContentLoaded', function() {
-  // ===== INITIALIZATION =====
-  initializeNavigation();
-  initializeAnimations();
+  // Initialize all main features
+  initializeNavigation();    // Setup hamburger menu, sidebar, and navigation links
+  initializeAnimations();    // Setup fade-in animations on scroll
 });
 
-// ===== NAVIGATION SYSTEM =====
+/* ===============================
+   2. NAVIGATION SYSTEM
+   =============================== 
+   
+   Handles all navigation functionality including:
+   - Hamburger menu (mobile dropdown menu)
+   - Sidebar (desktop fixed navigation)
+   - Active section highlighting (scroll spy)
+   - Smooth scrolling to sections
+   - Responsive behavior (mobile vs desktop)
+*/
 function initializeNavigation() {
-  // DOM Elements
-  const header = document.getElementById('main-header');
-  const sidebar = document.getElementById('sidebar');
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
-  const mainContent = document.getElementById('main-content');
-  const body = document.body;
+  // ===== DOM ELEMENTS =====
+  // Get references to all navigation-related HTML elements
+  const header = document.getElementById('main-header');           // Top navigation bar
+  const sidebar = document.getElementById('sidebar');              // Left sidebar (desktop only)
+  const hamburgerBtn = document.getElementById('hamburger-btn');   // Mobile menu button (3 lines)
+  const navMenu = document.getElementById('nav-menu');             // Dropdown menu content
+  const mainContent = document.getElementById('main-content');     // Main page content
+  const body = document.body;                                      // Body element for adding classes
   
   // Navigation links
   const navLinks = document.querySelectorAll('.nav-link');
@@ -396,8 +429,22 @@ function initializeProcessDetails() {
   });
 }
 
-// ===== STORY PLAYBACK FUNCTIONALITY =====
-// Handles interactive story moments and playback
+/* ===============================
+   4. STORY PLAYBACK FUNCTIONALITY
+   =============================== 
+   
+   Interactive story cards that open modal popups with full story content.
+   Features:
+   - Click to open story modal
+   - Keyboard support (Enter/Space to open, Escape to close)
+   - Smooth animations
+   - Full story text with images and tags
+*/
+
+/* ===== PLAY STORY =====
+   Opens a modal with the full story content
+   @param {String} storyId - ID of the story to display
+*/
 function playStory(storyId) {
   const storyCard = document.querySelector(`[data-story="${storyId}"]`);
   
@@ -415,8 +462,13 @@ function playStory(storyId) {
   }
 }
 
+/* ===== SHOW STORY MODAL =====
+   Creates and displays a modal with the full story content
+   @param {String} storyId - ID of the story to display
+*/
 function showStoryModal(storyId) {
-  // Story content database - customize these stories for your team
+  // ===== STORY CONTENT DATABASE =====
+  // Contains all story data (title, author, text, images, tags)
   const stories = {
     breakthrough: {
       title: "🚤 When the Waters Turned",
