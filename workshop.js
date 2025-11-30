@@ -1,47 +1,79 @@
-// ===== TEXCELERATORS ROBOTICS CLUB WORKSHOP PAGE =====
-// JavaScript functionality for the workshop page
+/* ===============================
+   TEXCELERATORS ROBOTICS CLUB - WORKSHOP PAGE
+   ===============================
+   
+   This file handles all interactive functionality for the Workshop page including:
+   - Navigation (hamburger menu, sidebar, scroll spy)
+   - Gallery (lightbox image viewer)
+   - Contact Form (submission and validation)
+   - Workshop Registration (modal popups)
+   - Scroll Effects (animations and parallax)
+   
+   TABLE OF CONTENTS:
+   1. Page Initialization
+   2. Navigation System
+   3. Footer Links
+   4. Gallery Lightbox
+   5. Contact Form
+   6. Workshop Registration
+   7. Scroll Effects
+   8. Utility Functions
+   =============================== */
 
+/* ===============================
+   1. PAGE INITIALIZATION
+   =============================== 
+   
+   This section runs when the page loads and initializes
+   all the interactive features in the correct order.
+   This ensures proper loading order and prevents issues with missing DOM elements.
+*/
 document.addEventListener('DOMContentLoaded', function() {
-  // ===== INITIALIZATION =====
-  // Initialize all core functionality when the page loads
-  // This ensures proper loading order and prevents issues with missing DOM elements
-  
-  initializeNavigation();           // Handle navbar, sidebar, and navigation clicks
-  initializeFooterLinks();          // Handle footer navigation links
+  // Initialize all main features
+  initializeNavigation();           // Setup hamburger menu, sidebar, and navigation links
+  initializeFooterLinks();          // Setup footer navigation links
   initializeGallery();              // Setup gallery lightbox functionality
-  initializeContactForm();          // Handle contact form submission and validation
-  initializeWorkshopRegistration(); // Handle workshop registration modals
-  initializeScrollEffects();        // Add scroll-based animations and parallax effects
+  initializeContactForm();          // Setup contact form submission and validation
+  initializeWorkshopRegistration(); // Setup workshop registration modals
+  initializeScrollEffects();        // Setup scroll-based animations and parallax effects
 });
 
-// ===== NAVIGATION SYSTEM =====
-// This function handles all navigation-related functionality including:
-// - Hamburger menu toggle and animations
-// - Sidebar activation/deactivation based on scroll position
-// - Navigation link clicks and smooth scrolling
-// - Active section highlighting during scroll
+/* ===============================
+   2. NAVIGATION SYSTEM
+   =============================== 
+   
+   Handles all navigation functionality including:
+   - Hamburger menu (mobile dropdown menu)
+   - Sidebar (desktop fixed navigation)
+   - Active section highlighting (scroll spy)
+   - Smooth scrolling to sections
+   - Responsive behavior (mobile vs desktop)
+*/
 function initializeNavigation() {
-  // DOM Elements - Cache frequently used elements for better performance
-  const header = document.getElementById('main-header');
-  const sidebar = document.getElementById('sidebar');
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
-  const mainContent = document.getElementById('main-content');
-  const body = document.body;
+  // ===== DOM ELEMENTS =====
+  // Cache frequently used elements for better performance
+  const header = document.getElementById('main-header');           // Top navigation bar
+  const sidebar = document.getElementById('sidebar');              // Left sidebar (desktop only)
+  const hamburgerBtn = document.getElementById('hamburger-btn');   // Mobile menu button (3 lines)
+  const navMenu = document.getElementById('nav-menu');             // Dropdown menu content
+  const mainContent = document.getElementById('main-content');     // Main page content
+  const body = document.body;                                      // Body element for adding classes
   
-  // Navigation links - Both navbar dropdown and sidebar navigation
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sidebarLinks = document.querySelectorAll('.sidebar-link');
-  const sections = document.querySelectorAll('section[id]');
+  // Get all navigation links (both in dropdown and sidebar)
+  const navLinks = document.querySelectorAll('.nav-link');         // Links in dropdown menu
+  const sidebarLinks = document.querySelectorAll('.sidebar-link'); // Links in sidebar
+  const sections = document.querySelectorAll('section[id]');       // All page sections with IDs
   
-  // State variables - Track menu and sidebar states
-  let isMenuOpen = false;      // Tracks if dropdown menu is currently open
-  let isSidebarMode = false;   // Tracks if sidebar is currently active (desktop only)
-  let lastScrollTop = 0;       // Used for scroll direction detection
+  // ===== STATE VARIABLES =====
+  // Track the current state of navigation elements
+  let isMenuOpen = false;        // Is the mobile dropdown menu currently open?
+  let isSidebarMode = false;     // Is the sidebar currently visible? (desktop only)
+  let lastScrollTop = 0;         // Last scroll position (for scroll direction detection)
   
-  // Setup event listeners
-  setupNavigationEvents();
-  updateActiveSection();
+  // ===== INITIALIZATION =====
+  // Setup all event listeners and initial state
+  setupNavigationEvents();       // Attach click and scroll listeners
+  updateActiveSection();         // Highlight the current section on page load
   
   function setupNavigationEvents() {
     // Hamburger menu toggle
