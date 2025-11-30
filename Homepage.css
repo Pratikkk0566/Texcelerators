@@ -3520,3 +3520,172 @@ animation: slideIn 0.5s ease forwards;
     font-size: 0.875rem;
   }
 }
+
+/* ===== STORY MODAL STYLES ===== */
+.story-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.story-modal {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(20px);
+}
+
+.story-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  border-radius: 50%;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.story-modal-close:hover {
+  background: rgba(244, 63, 94, 0.2);
+  transform: scale(1.1);
+}
+
+.story-modal-header {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.story-modal-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-modal-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 3rem 2rem 2rem 2rem;
+  color: white;
+}
+
+.story-modal-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.story-modal-author {
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.story-modal-timestamp {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.story-modal-content {
+  padding: 2rem;
+}
+
+.story-modal-text p {
+  color: var(--foreground);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.story-modal-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.story-modal-tag {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+/* Mobile Responsive for Story Modal */
+@media (max-width: 768px) {
+  .story-modal-overlay {
+    padding: 1rem;
+  }
+  
+  .story-modal {
+    max-height: 95vh;
+  }
+  
+  .story-modal-header {
+    height: 200px;
+  }
+  
+  .story-modal-info {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+  }
+  
+  .story-modal-content {
+    padding: 1.5rem;
+  }
+  
+  .story-modal-info h3 {
+    font-size: 1.5rem;
+  }
+  
+  .story-modal-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-modal-header {
+    height: 150px;
+  }
+  
+  .story-modal-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .story-modal-text p {
+    font-size: 0.95rem;
+  }
+}

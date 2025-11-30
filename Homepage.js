@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeBotCarousel();
   initializeAnimations();
   initializeFormHandling();
+  initializeStoryPlayback();
 });
 
 // ===== NAVIGATION SYSTEM =====
@@ -1268,4 +1269,178 @@ function initializeTeamsTestimonials() {
   if (document.getElementById('teamsTestimonialContainer')) {
       new TeamsTestimonialSlider();
   }
+}
+
+// ===== STORY PLAYBACK FUNCTIONALITY =====
+// Handles interactive story moments and playback
+function playStory(storyId) {
+  const storyCard = document.querySelector(`[data-story="${storyId}"]`);
+  
+  if (storyCard) {
+    // Add visual feedback
+    storyCard.style.transform = 'scale(0.98)';
+    
+    // Create story modal or expanded view
+    showStoryModal(storyId);
+    
+    // Reset visual feedback after animation
+    setTimeout(() => {
+      storyCard.style.transform = '';
+    }, 200);
+  }
+}
+
+function showStoryModal(storyId) {
+  // Story content database - customize these stories for your team
+  const stories = {
+    breakthrough: {
+      title: "🚤 When the Waters Turned",
+      author: "Palak Khonde, Core Member",
+      fullText: `We thought we had it figured out.
+After weeks of prototypes — from foam floats to sleek carbon shells — we had a lineup of RC boats that looked fast, felt powerful, and screamed potential.
+Except for one thing: the turn.
+
+No matter how hard we pushed, the turning radius just wouldn't tighten. We'd glide fast, but wide — too wide. And while some of us kept tweaking rudder angles, others simply practiced longer, adapting to the curve.
+
+It was fine. Not perfect, but fine.
+
+And then, just a week before we were set to leave for IIT Bombay 🧳 — when the tension was high and changes seemed too risky — something happened.
+
+Two quiet members from our boat squad, working mostly under the radar, rolled out a fresh design.
+No noise. No fuss. Just precision.
+
+The new boat was leaner, lighter, and cut through turns like it was reading our minds.
+It didn't just handle better — it flipped our mindset.
+
+While we were working to fix a problem, they had quietly reimagined the solution.
+That boat didn't just corner tight.
+It cornered everything we thought we knew. 🌊⚙️`,
+      image: "Assets/images/Robots/Story/Sail.jpg",
+      timestamp: "9:00 PM - March 15th, 2024",
+      tags: ["Debugging", "Breakthrough", "Teamwork"]
+    },
+    learning: {
+      title: "🚫 No Backup. No Victory.",
+      author: "Ashutosh Maske, Mentor",
+      fullText: `The night before Technex, around 7 PM, what was meant to be a final check turned into a moment we'll never forget. During testing at our college, our most reliable bot — the one that had powered through every challenge over the past six months — suddenly slammed into an iron chair while reversing.
+
+In an instant, its acrylic chassis cracked from the front-right. The damage was irreversible. With no way to rejoin the broken parts and no backup ready, panic quickly replaced confidence.
+
+We had trusted that bot like a teammate. But in that trust, we'd overlooked routine checkups. The constant wear had taken its toll, silently weakening it — and we failed to notice.
+
+That night, a few of us stayed up working tirelessly, trying to salvage what we could. But no quick fix could undo months of fatigue or our lack of preparation.
+
+We couldn't give our best at Overdrive. And we didn't win.
+
+But that loss became a turning point. It taught us what no victory ever could: that reliability isn't just built — it's maintained. And that behind every successful run lies discipline, foresight, and a team that learns from its setbacks.`,
+      image: "Assets/images/Robots/Story/Acrylic.png",
+      timestamp: "8:00 PM - January 19th, 2025",
+      tags: ["Learning", "Failure", "Growth"]
+    },
+    teamwork: {
+      title: "⚙️ From Chaos to Combat",
+      author: "Arnav Borikar, Designing Lead",
+      fullText: `When we stepped into BITS Pilani Goa for Quark 2025, we were already racing the clock.
+Not a single bot was ready — and three events were just hours away: Robo Race 🏎️, Robo Soccer ⚽, and Robo Sumo 🤖.
+
+But this time, we didn't panic.
+We remembered what went wrong before — when poor coordination and missing backups had cost us dearly 🧠.
+We'd promised ourselves: never again.
+
+So we built — together 🤝.
+Some shaped claws for Soccer, others carved wedges for Sumo, some worked endlessly on motor assemblies 🔧.
+Hours blurred 🌙. Palms ached. But the team held strong.
+
+When the arenas opened, we entered all three 💥.
+We fought hard in Race and Soccer. But in Robo Sumo, our bot stood its ground — and brought home 🥉 3rd place.
+
+We didn't just build machines that night.
+We built trust, confidence — and a team we could finally be proud of 💪.`,
+      image: "assets/images/Robots/Story/Quark.jpg",
+      timestamp: "4:45 PM - February 10th, 2025",
+      tags: ["Collaboration", "Team Spirit", "Success"]   
+    }
+  };
+  
+  const story = stories[storyId];
+  if (!story) return;
+  
+  // Create modal HTML
+  const modalHTML = `
+    <div class="story-modal-overlay" onclick="closeStoryModal()">
+      <div class="story-modal" onclick="event.stopPropagation()">
+        <button class="story-modal-close" onclick="closeStoryModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="story-modal-header">
+          <img src="${story.image}" alt="${story.title}">
+          <div class="story-modal-info">
+            <h3>${story.title}</h3>
+            <p class="story-modal-author">${story.author}</p>
+            <p class="story-modal-timestamp">
+              <i class="fas fa-clock"></i> ${story.timestamp}
+            </p>
+          </div>
+        </div>
+        <div class="story-modal-content">
+          <div class="story-modal-text">
+            ${story.fullText.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('')}
+          </div>
+          <div class="story-modal-tags">
+            ${story.tags.map(tag => `<span class="story-modal-tag">#${tag}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Add modal to page
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  
+  // Add entrance animation
+  const modal = document.querySelector('.story-modal-overlay');
+  setTimeout(() => {
+    modal.style.opacity = '1';
+    modal.querySelector('.story-modal').style.transform = 'scale(1)';
+  }, 10);
+}
+
+function closeStoryModal() {
+  const modal = document.querySelector('.story-modal-overlay');
+  if (modal) {
+    modal.style.opacity = '0';
+    modal.querySelector('.story-modal').style.transform = 'scale(0.9)';
+    setTimeout(() => {
+      modal.remove();
+    }, 300);
+  }
+}
+
+function initializeStoryPlayback() {
+  // Add click handlers for story cards
+  const storyCards = document.querySelectorAll('.story-card');
+  
+  storyCards.forEach(card => {
+    const storyId = card.getAttribute('data-story');
+    if (storyId) {
+      // Add click handler to card
+      card.addEventListener('click', () => playStory(storyId));
+      
+      // Add keyboard accessibility
+      card.setAttribute('tabindex', '0');
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          playStory(storyId);
+        }
+      });
+    }
+  });
+  
+  // Add escape key handler for modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeStoryModal();
+    }
+  });
 }
