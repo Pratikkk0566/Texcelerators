@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeAnimations();           // Setup fade-in animations on scroll
   initializeFormHandling();         // Setup contact form submission
   initializeStoryPlayback();        // Setup interactive story modals
+  initializeCardSpotlight();        // Setup Aceternity-style spotlight effect on bot cards
 });
 
 /* ===============================
@@ -1561,5 +1562,39 @@ function initializeStoryPlayback() {
     if (e.key === 'Escape') {
       closeStoryModal();
     }
+  });
+}
+
+/* ===============================
+   ACETERNITY CARD SPOTLIGHT EFFECT
+   ===============================
+   
+   Replicates the Aceternity UI card-spotlight component.
+   Tracks mouse position on each bot card and applies a radial
+   gradient spotlight that follows the cursor, creating a glowing
+   light effect identical to the React component.
+*/
+function initializeCardSpotlight() {
+  const botCards = document.querySelectorAll('.bot-card');
+
+  botCards.forEach(card => {
+    // Track mouse movement over the card
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+
+      // Calculate mouse position as percentage relative to card
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      // Set CSS custom properties for the spotlight position
+      card.style.setProperty('--mouse-x', x + '%');
+      card.style.setProperty('--mouse-y', y + '%');
+    });
+
+    // Reset spotlight to center when mouse leaves
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--mouse-x', '50%');
+      card.style.setProperty('--mouse-y', '50%');
+    });
   });
 }

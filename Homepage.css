@@ -3689,3 +3689,75 @@ animation: slideIn 0.5s ease forwards;
     font-size: 0.95rem;
   }
 }
+
+/* ===== ACETERNITY CARD SPOTLIGHT EFFECT ===== */
+/* Replicates the Aceternity UI card-spotlight component in vanilla CSS/JS */
+
+.bot-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* The spotlight radial gradient layer - sits on top of card, below content */
+.bot-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(139, 92, 246, 0.15),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Show spotlight on hover */
+.bot-card:hover::before {
+  opacity: 1;
+}
+
+/* Border glow effect - outer ring that lights up */
+.bot-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(139, 92, 246, 0.25),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bot-card:hover::after {
+  opacity: 1;
+}
+
+/* Ensure card content stays above the spotlight layer */
+.bot-card-media,
+.bot-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced border on hover using box-shadow */
+.bot-card {
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.bot-card:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.2),
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(139, 92, 246, 0.1);
+}
