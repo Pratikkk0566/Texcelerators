@@ -1295,7 +1295,7 @@ body.sidebar-active #main-header {
 }
 
 .achievements-grid {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
