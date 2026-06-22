@@ -81,7 +81,9 @@
       <!-- Desktop Right: Club Logo -->
       <div class="navbar-logo right-logo">
         <div class="logo-image">
-          <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelerators">
+          <a href="#home" aria-label="Back to top" class="logo-home-link">
+            <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelerators">
+          </a>
         </div>
       </div>
     </div>
@@ -105,9 +107,9 @@
           <i class="fas fa-robot"></i>
           <span>Robots</span>
         </a>
-        <a href="#" class="nav-link" data-section="workshop">
-          <i class="fas fa-university"></i>
-          <span>Workshops</span>
+        <a href="Robowars.html" class="nav-link active" data-section="robowars">
+          <i class="fas fa-fire-flame-curved"></i>
+          <span>RoboWars</span>
         </a>
         <a href="#about" class="nav-link" data-section="about">
           <i class="fas fa-info-circle"></i>           
@@ -115,11 +117,8 @@
         </a>
         <a href="#contact" class="nav-link" data-section="contact">
           <i class="fas fa-envelope"></i>
-          <span>Contact</span>
+          <span>Contact / Join Us</span>
         </a>
-        <a href="team.html#join-section"  class="nav-link" >
-          <i class="fa-solid fa-handshake-angle"></i>
-          <span>Join Us</span>
         </a>
       </div>
     </nav>
@@ -130,9 +129,10 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-content">
     <div class="sidebar-header">
-      <div class="sidebar-logo">
+      <a href="index.html#home"
+      class="sidebar-logo">
         <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelerators">
-      </div>
+    </a>
       <div class="sidebar-brand font-addition">
         <span class="sidebar-title">TEXCELERATORS</span>
         <span class="sidebar-subtitle">Robo Club</span>
@@ -144,7 +144,7 @@
         <i class="fas fa-home" style="color: #B197FC;"></i>
         <span>Home</span>
       </a>
-      <a href="#overall-testimonial" class="sidebar-link active" data-section="overall-testimonial">
+      <a href="#teamsTestimonialContainer" class="sidebar-link active" data-section="teamsTestimonialContainer">
         <i class=" fas fa-solid fa-feather fa-flip-horizontal fa-lg" style="color: #B197FC;"></i>
         <span>Testimonials</span>
       </a>
@@ -156,10 +156,7 @@
         <i class="fas fa-users" style="color: #B197FC;"></i>
         <span>Team</span>
       </a>
-      <a href="#" class="sidebar-link" data-section="workshop">
-        <i class="fas fa-university" style="color: #B197FC;"></i>
-        <span>Workshops</span>
-      </a>
+      
       <a href="#bots" class="sidebar-link" data-section="bots">
         <i class="fas fa-robot" style="color: #B197FC;"></i>
         <span>Robots</span>
@@ -168,14 +165,26 @@
         <i class="fas fa-book-open" style="color: #B197FC;"></i>
         <span>Stories</span>
       </a>
+      <a href="Robowars.html" class="sidebar-link" data-section="robowars">
+          <i class="fas fa-fire-flame-curved" style="color: #B197FC;"></i>
+          <span>RoboWars</span>
+      </a>
       <a href="#about" class="sidebar-link" data-section="about">
         <i class="fas fa-info-circle" style="color: #B197FC;"></i>
         <span>About Us</span>
       </a>
       <a href="#contact" class="sidebar-link" data-section="contact">
         <i class="fas fa-envelope" style="color: #B197FC;"></i>
-        <span>Contact</span>
+        <span>Contact / Join Us</span>
       </a>
+      <!-- <a href="index.html#contact" class="sidebar-link" data-section="join">
+        <i class="fa-solid fa-handshake-angle" style="color: #B197FC;"></i>
+        <span>Join_Us</span>
+      </a>
+      <a href="login.html" class="sidebar-link" data-section="portal">
+        <i class="fa-solid fa-right-to-bracket" style="color: #B197FC;"></i>
+        <span>Member Portal</span>
+      </a> -->
     </nav>
   </div>
 </aside>
@@ -186,16 +195,16 @@
   <section id="home" class="hero">
     <div class="slide active">
       <div class="slide-bg"></div>
-      <img src="Assets/images/HomePage/Main SlideShow/Soldering.jpg" alt="Robotics showcase">
+      <img src="Assets/images/HomePage/Main SlideShow/IMG_6517.webp" alt="Robotics showcase">
       <div class="slide-content">
-        <h2 class="slide-title">Building the <span class="gradient-text">Future</span> of Robotics</h2>
-        <p class="slide-subtitle">Where innovation meets engineering excellence</p>
+        <h2 class="slide-title">The Official <span class="gradient-text">Combat </span> Robotics Club </h2>
+        <p class="slide-subtitle">of St.Vincent Pallotti College of Engg. and Technology</p>
       </div>
     </div>
-    
+
     <div class="slide">
       <div class="slide-bg"></div>
-      <img src="Assets/images/HomePage/Main SlideShow/IITB2024.JPG" alt="Team collaboration">
+      <img src="Assets/images/HomePage/Main SlideShow/IITB2024.webp" alt="Team collaboration">
       <div class="slide-content">
         <h2 class="slide-title">Teamwork Makes The <span class="gradient-text">Dream Work</span></h2>
         <p class="slide-subtitle">Collaborative innovation driving technological advancement</p>
@@ -204,7 +213,7 @@
     
     <div class="slide">
       <div class="slide-bg"></div>
-      <img src="Assets/images/HomePage/Main SlideShow/BITSGATE2025.JPG" alt="Award-winning robotics">
+      <img src="Assets/images/HomePage/Main SlideShow/BITSGATE2025.webp" alt="Award-winning robotics">
       <div class="slide-content">
         <h2 class="slide-title">Champions of <span class="gradient-text">Innovation</span></h2>
         <p class="slide-subtitle">Creating award-winning solutions through creative engineering</p>
@@ -234,7 +243,7 @@
         <div class="testimonial-slider" id="testimonialSlider">
             <div class="testimonial active">
                 <div class="testimonial-image">
-                    <img src="Assets/images/HomePage/Testimonials/Faculty/FrPaul.jpg" alt="Dr. Fr. Paul Chandrankunnel">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/FrPaul.jpg" alt="Dr. Fr. Paul Chandrankunnel" loading="lazy">
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-text">
@@ -249,7 +258,7 @@
 
             <div class="testimonial">
                 <div class="testimonial-image">
-                    <img src="Assets/images/HomePage/Testimonials/Faculty/FrSiju.JPG" alt="Fr. Siju Jose">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/FrSiju.JPG" alt="Fr. Siju Jose" loading="lazy">
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-text">
@@ -264,7 +273,7 @@
 
             <div class="testimonial">
                 <div class="testimonial-image">
-                    <img src="Assets/images/HomePage/Testimonials/Faculty/ProfGowardhan.jpg" alt="R.B Gowardhan">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/ProfGowardhan.jpg" alt="R.B Gowardhan" loading="lazy">
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-text">
@@ -279,7 +288,7 @@
 
             <div class="testimonial">
                 <div class="testimonial-image">
-                    <img src="Assets/images/HomePage/Testimonials/Faculty/PrVijay.jpg" alt="Dr. Vijay Wadhai">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/PrVijay.jpg" alt="Dr. Vijay Wadhai" loading="lazy">
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-text">
@@ -294,7 +303,7 @@
 
             <div class="testimonial">
                 <div class="testimonial-image">
-                    <img src="Assets/images/HomePage/Testimonials/Faculty/Dr.Rangankar.jpg" alt="Dr. Suresh Rangankar">
+                    <img src="Assets/images/HomePage/Testimonials/Faculty/Dr.Rangankar.jpg" alt="Dr. Suresh Rangankar" loading="lazy">
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-text">
@@ -329,10 +338,10 @@
           
           <div class="teams-testimonial active">
               <div class="teams-testimonial-image">
-                  <img src="Assets/images/HomePage/Testimonials/Team/Team Mates/Shahabaj.png" alt="Blanka Botz">
+                  <img src="Assets/images/HomePage/Testimonials/Team/Team Mates/Shahabaj.webp" alt="Blanka Botz" loading="lazy">
                   <!-- LOGO OVERLAY - KEY FEATURE -->
                   <div class="team-logo-overlay">
-                      <img src="Assets/images/HomePage/Testimonials/Team/logo/BlankaBlack.png" alt="Google Logo">
+                      <img src="Assets/images/HomePage/Testimonials/Team/logo/BlankaBlack.png" alt="Google Logo" loading="lazy">
                   </div>
               </div>
               <div class="teams-testimonial-content">
@@ -350,36 +359,12 @@ Among those teams, the <b>Texcelerators</b> stand out as passionate and determin
               </div>
           </div>
 
-          <div class="teams-testimonial">
-            <div class="teams-testimonial-image">
-                <img src="Assets/images/Team/Behind The Scenes/coming.jpg" alt="Blanka Botz">
-                <!-- LOGO OVERLAY - KEY FEATURE -->
-                <div class="team-logo-overlay">
-                    <img src="Assets/images/HomePage/Testimonials/Team/logo/Megatrons.png"  alt="Megatrons Logo">
-                </div>
-            </div>
-            <div class="teams-testimonial-content">
-                <div class="teams-testimonial-text">
-                  At <b>Team Megatrons (GEC Raipur)</b>, innovation is more than just engineering—it’s a mindset. What began as a group of enthusiastic students has grown into a multi-disciplinary team recognized across India for excellence in Electronics, Robotics, AI/ML, and IoT. From dominating robotics events at <b> VNIT Nagpur, NIT Jamshedpur, IIT Bhilai, BITS Goa, and more,</b> to being featured twice in Haribhoomi for technological excellence, Megatrons has built a reputation for intelligent problem-solving and hands-on innovation. <br> <br>
-
-Our journey with the <b>Texcelerators</b> began unexpectedly at BITS Goa, but it quickly grew into a strong friendship and partnership. Though we are not primarily a Robowars team, working alongside Texcelerators has been an incredible exchange of ideas and passion. Together, we’ve shared experiences, learned from each other’s strengths, and pushed our limits in new ways. <br> <br>
-
-What inspires us most about <b>Texcelerators</b> is their determination and drive to innovate in every challenge they take on. For us, this collaboration is not just about competitions—it’s about building a community of engineers who grow stronger together.
-                </div>
-                <div class="teams-testimonial-author">
-                    <div class="team-name">Rahul Sinha & Akshat Soni</div>
-                    <div class="team-company">Core Members, Team Megatrons</div>
-                </div>
-            </div>
-        </div>
-
-
         <div class="teams-testimonial ">
           <div class="teams-testimonial-image">
-              <img src="Assets/images/HomePage/Testimonials/Team/Team Mates/PrixxTeam.jpg" alt="Prixx Team">
+              <img src="Assets/images/HomePage/Testimonials/Team/Team Mates/PrixxTeam.webp" alt="Prixx Team" loading="lazy">
               <!-- LOGO OVERLAY - KEY FEATURE -->
               <div class="team-logo-overlay">
-                  <img src="Assets/images/HomePage/Testimonials/Team/logo/Prixx.png" alt="Prixx Logo">
+                  <img src="Assets/images/HomePage/Testimonials/Team/logo/Prixx.png" alt="Prixx Logo" loading="lazy">
               </div>
           </div>
           <div class="teams-testimonial-content">
@@ -406,7 +391,6 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
           <div class="teams-slider-indicators" id="teamsIndicators">
               <div class="teams-indicator active" data-slide="0"></div>
               <div class="teams-indicator" data-slide="1"></div>
-              <div class="teams-indicator" data-slide="2"></div>
               
               <!-- Add more indicators as needed -->
           </div>
@@ -462,79 +446,81 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
       <!-- Highlighted Achievement Cards -->
        <div class="highlighted-achievements">
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/Nanded2026.webp" alt="Nanded RoboWars">
+          <img src="Assets/images/HomePage/Achivements/Nanded2026.webp" alt="Nanded RoboWars" loading="lazy">
           <div class="highlighted-card-content">
-            <h3 class="highlighted-card-title">SGGSIET, NANDED 2026</h3>
-            <p class="highlighted-card-description">Earned 3rd place in Robo Sumo at Quark 2025, BITS Goa — a hard-fought victory that remains one of our most meaningful milestones</p>
+            <h3 class="highlighted-card-title">SGGSIET 2026</h3>
+            <p class="highlighted-card-description">RMAGEDDON National Level Robotics Competition, 
+Secured 1st Place in Robo Wars(16 kg) at SGGSIE&T, Nanded, showcasing excellence in robotic combat and innovation.</p>
             <div class="highlighted-card-date">
               <i class="fas fa-calendar-alt"></i>
-              <span>February 2025</span>
+              <span>February 2026</span>
             </div>
           </div>
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/Ycce.jpeg" alt="YCCE">
+          <img src="Assets/images/HomePage/Achivements/Ycce.webp" alt="YCCE" loading="lazy">
           <div class="highlighted-card-content">
-            <h3 class="highlighted-card-title">YCCE, NAGPUR 2026</h3>
-            <p class="highlighted-card-description">Earned 3rd place in Robo Sumo at Quark 2025, BITS Goa — a hard-fought victory that remains one of our most meaningful milestones</p>
+            <h3 class="highlighted-card-title">YCCE 2026</h3>
+            <p class="highlighted-card-description">At YASH'26, hosted by YCCE, Nagpur on 28 February 2026, Texcelerators achieved remarkable success by securing 1st & 3rd positions in Robo Soccer and 1st, 2nd & 3rd positions in Robo Race.</p>
             <div class="highlighted-card-date">
               <i class="fas fa-calendar-alt"></i>
-              <span>February 2025</span>
+              <span>February 2026</span>
             </div>
           </div>
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/Cummins2026.webp" alt="CUMMINS COLLEGE">
+          <img src="Assets/images/HomePage/Achivements/Cummins2026.webp" alt="CUMMINS COLLEGE" loading="lazy">
           <div class="highlighted-card-content">
-            <h3 class="highlighted-card-title">CUMMINS COLLEGE, NAGPUR 2026</h3>
-            <p class="highlighted-card-description">Earned 3rd place in Robo Sumo at Quark 2025, BITS Goa — a hard-fought victory that remains one of our most meaningful milestones</p>
+            <h3 class="highlighted-card-title">CUMMINS COLLEGE 2026</h3>
+            <p class="highlighted-card-description">Achieved 1st and 2nd Place in Robo Race through innovative engineering, strategic execution, and outstanding robotic performance.</p>
             <div class="highlighted-card-date">
               <i class="fas fa-calendar-alt"></i>
-              <span>February 2025</span>
+              <span>April 2026</span>
             </div>
           </div>
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" alt="BITS GOA">
+          <img src="Assets/images/HomePage/Achivements/Raisoni.webp" alt="GHRCE, NAGPUR" loading="lazy">
           <div class="highlighted-card-content">
-            <h3 class="highlighted-card-title">GHRCE, NAGPUR 2026</h3>
-            <p class="highlighted-card-description">Earned 3rd place in Robo Sumo at Quark 2025, BITS Goa — a hard-fought victory that remains one of our most meaningful milestones</p>
+            <h3 class="highlighted-card-title">GHRCE 2026</h3>
+            <p class="highlighted-card-description">Secured 1st and 2nd Place in Robo Soccer, demonstrating outstanding teamwork and robotic performance at G H Raisoni College, Nagpur.</p>
             <div class="highlighted-card-date">
               <i class="fas fa-calendar-alt"></i>
-              <span>February 2025</span>
+              <span>April 2026</span>
             </div>
           </div>
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" alt="BITS GOA">
+          <img src="Assets/images/HomePage/Achivements/GCOE_2026.webp" alt="GCOE, NAGPUR" loading="lazy">
           <div class="highlighted-card-content">
-            <h3 class="highlighted-card-title">GCOE, NAGPUR 2026</h3>
-            <p class="highlighted-card-description">Earned 3rd place in Robo Sumo at Quark 2025, BITS Goa — a hard-fought victory that remains one of our most meaningful milestones</p>
+            <h3 class="highlighted-card-title">GCOE 2026</h3>
+            <p class="highlighted-card-description">ADHYAAYA 2026 – Robo Race, GCOE
+Secured 2nd Place in Robo Race, demonstrating speed, precision, and engineering excellence.</p>
             <div class="highlighted-card-date">
               <i class="fas fa-calendar-alt"></i>
-              <span>February 2025</span>
+              <span>March 2026</span>
             </div>
           </div>
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" alt="BITS GOA">
+          <img src="Assets/images/HomePage/Achivements/TECHNEX2025CC.webp" alt="TECHNEX 2025 CC" loading="lazy">
           <div class="highlighted-card-content">
-            <h3 class="highlighted-card-title">TECHNEX 2025</h3>
-            <p class="highlighted-card-description">Earned 3rd place in Robo Sumo at Quark 2025, BITS Goa — a hard-fought victory that remains one of our most meaningful milestones</p>
+            <h3 class="highlighted-card-title">SVPCET 2025 - DECEMBER</h3>
+            <p class="highlighted-card-description">Achieved 1st Place in Coastal Clash at TECHNEX, SVPCET. A memorable victory on our home turf and a testament to teamwork and dedication.</p>
             <div class="highlighted-card-date">
               <i class="fas fa-calendar-alt"></i>
-              <span>February 2025</span>
+              <span>December 2025</span>
             </div>
           </div>
         </div>
 
-        <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" alt="BITS GOA">
+        <!-- <div class="highlighted-card animate-on-scroll">
+          <img src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" alt="BITS GOA" loading="lazy">
           <div class="highlighted-card-content">
             <h3 class="highlighted-card-title">IIT BOMBAY 2025</h3>
             <p class="highlighted-card-description">Earned 3rd place in Robo Sumo at Quark 2025, BITS Goa — a hard-fought victory that remains one of our most meaningful milestones</p>
@@ -543,10 +529,10 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
               <span>February 2025</span>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" alt="BITS GOA">
+          <img src="Assets/images/HomePage/Achivements/BITSG2025Win.webp" alt="BITS GOA" loading="lazy">
           <div class="highlighted-card-content">
             <h3 class="highlighted-card-title">BITS GOA 2025</h3>
             <p class="highlighted-card-description">Earned 3rd place in Robo Sumo at Quark 2025, BITS Goa — a hard-fought victory that remains one of our most meaningful milestones</p>
@@ -558,7 +544,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         </div>
         
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/IIITN2024.jpg" alt="IIIT NAGPUR">
+          <img src="Assets/images/HomePage/Achivements/IIITN2024.webp" alt="IIIT NAGPUR" loading="lazy">
           <div class="highlighted-card-content">
             <h3 class="highlighted-card-title">IIIT NAGPUR 2024</h3>
             <p class="highlighted-card-description">Dominated the arena with 2nd & 3rd place finishes at IIIT Nagpur 2024 and a thrilling win at Tantrafiesta’s Robo Rumble, proving our bots are built for both speed and survival</p>
@@ -570,7 +556,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/IITB2023.jpg" alt="IIT BOMBAY">
+          <img src="Assets/images/HomePage/Achivements/IITB2023.webp" alt="IIT BOMBAY" loading="lazy">
           <div class="highlighted-card-content">
             <h3 class="highlighted-card-title">IIT BOMBAY 2023</h3>
             <p class="highlighted-card-description">Achieved a clean sweep at IIT Bombay’s TechFest 2023 – Roboatics "RC Boats", securing 1st, 2nd, and 3rd positions on our second attempt and leaving a mark on the national stage.
@@ -583,9 +569,9 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/TECHNEX2024.jpg" alt="Technex2024">
+          <img src="Assets/images/HomePage/Achivements/TECHNEX2024.webp" alt="Technex2024" loading="lazy">
           <div class="highlighted-card-content">
-            <h3 class="highlighted-card-title">TECHNEX 2024</h3>
+            <h3 class="highlighted-card-title">SVPCET - 2024</h3>
             <p class="highlighted-card-description">Conquered our home turf at Technex 2024, St. Vincent Pallotti College, with a clean sweep in Coastal Clash, bagging 1st, 2nd, and 3rd places and proving the arena belongs to us.</p>
             <div class="highlighted-card-date">
               <i class="fas fa-calendar-alt"></i>
@@ -595,7 +581,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/IITB2024.jpg" alt="Technex2024">
+          <img src="Assets/images/HomePage/Achivements/IITB2024.webp" alt="IIT BOMBAY 2024" loading="lazy">
           <div class="highlighted-card-content">
             <h3 class="highlighted-card-title">IIT BOMBAY 2024</h3>
             <p class="highlighted-card-description">Entered with a new team and renewed spirit at IIT Bombay TechFest 2024 – Roboatics (RC Boat Race), competing on an international stage and proudly securing 5th place among elite contenders.</p>
@@ -607,9 +593,9 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/TECHNEX2025.jpg" alt="Technex2024">
+          <img src="Assets/images/HomePage/Achivements/TECHNEX2025.webp" alt="SVPCET 2025" loading="lazy">
           <div class="highlighted-card-content">
-            <h3 class="highlighted-card-title">TECHNEX 2025</h3>
+            <h3 class="highlighted-card-title">SVPCET 2025 - JANUARY</h3>
             <p class="highlighted-card-description">Made a winning debut at Drift Fury during Technex 2025, SVPCET, clinching 1st place in the RC car race on our home ground with unmatched control and style.</p>
             <div class="highlighted-card-date">
               <i class="fas fa-calendar-alt"></i>
@@ -619,7 +605,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/IIITN2023.jpg" alt="Technex2024">
+          <img src="Assets/images/HomePage/Achivements/IIITN2023.webp" alt="IIIT NAGPUR 2023" loading="lazy">
           <div class="highlighted-card-content">
             <h3 class="highlighted-card-title">IIIT NAGPUR 2023</h3>
             <p class="highlighted-card-description">At Robo Rumble 2023, held during IIIT Nagpur’s Tantrafiesta, we clinched 3rd place in a fierce battle — a moment that etched itself into our journey with grit, sparks, and unforgettable impact.</p>
@@ -631,7 +617,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         </div>
 
         <div class="highlighted-card animate-on-scroll">
-          <img src="Assets/images/HomePage/Achivements/IIITN2022.JPG" alt="Technex2024">
+          <img src="Assets/images/HomePage/Achivements/IIITN2022.webp" alt="IIIT NAGPUR 2022" loading="lazy">
           <div class="highlighted-card-content">
             <h3 class="highlighted-card-title">IIIT NAGPUR 2022</h3>
             <p class="highlighted-card-description">Debuted at Robo Rumble 2022, hosted by <b> IIIT Nagpur</b> during <b>Tantrafiesta</b>, and made an unforgettable mark by securing 1st place in our very first competitive appearance.</p>
@@ -678,7 +664,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
                 <div class="bot-card-badge primary">
                   <i class="fas fa-futbol"></i> Flagship
                 </div>
-                <img src="Assets/images/HomePage/Robots/RoboSoccer.jpg" alt="RoboSoccer">
+                <img src="Assets/images/HomePage/Robots/RoboSoccer.webp" alt="RoboSoccer" loading="lazy">
                 <div class="bot-card-overlay">
                   <button class="bot-details-button">
                     <i class="fas fa-info-circle"></i> Details
@@ -688,24 +674,12 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
               <div class="bot-card-content">
                 <div class="bot-card-header">
                   <h3 class="bot-card-title">Robo<span class="text-primary">Soccer</span></h3>
-                  <div class="bot-card-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                  </div>
+                 
                 </div>
                 <p class="bot-card-description">High-performance soccer robot engineered with precision drive control and tactical maneuvering capabilities for competitive matches.</p>
                 <div class="bot-card-specs">
-                  <div class="bot-spec">
-                    <i class="fas fa-microchip"></i>
-                    <span>AI-powered</span>
-                  </div>
-                  <div class="bot-spec">
-                    <i class="fas fa-bullseye"></i>
-                    <span>High precision</span>
-                  </div>
+                  
+                  
                 </div>
                 <div class="bot-tags">
                   <span class="bot-tag primary">Precision Control</span>
@@ -722,7 +696,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
                 <div class="bot-card-badge secondary">
                   <i class="fas fa-compass"></i> Raw Power
                 </div>
-                <img src="Assets/images/HomePage/Robots/RoboSumo.jpg" alt="RoboSumo">
+                <img src="Assets/images/HomePage/Robots/RoboSumo.webp" alt="RoboSumo" loading="lazy">
                 <div class="bot-card-overlay">
                   <button class="bot-details-button">
                     <i class="fas fa-info-circle"></i> Details
@@ -733,16 +707,9 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
                 <div class="bot-card-header">
                   <h3 class="bot-card-title">Robo<span class="text-secondary">Sumo</span></h3>
                 </div>
-                <p class="bot-card-description">Championship sumo robot combining robust mechanical design with intelligent combat strategies for competitive dominance.</p>
+                <p class="bot-card-description">An manually controlled combat robot designed to push opponents out of the arena. Built for strength, strategy, and high-performance robotic battles.</p>
                 <div class="bot-card-specs">
-                  <div class="bot-spec">
-                    <i class="fas fa-broadcast-tower"></i>
-                    <span>High Torque</span>
-                  </div>
-                  <div class="bot-spec">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <span></span>
-                  </div>
+                  
                 </div>
                 <div class="bot-tags">
                   <span class="bot-tag accent">Rugged</span>
@@ -759,7 +726,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
                 <div class="bot-card-badge accent">
                   <i class="fas fa-medkit"></i> Climber
                 </div>
-                <img src="Assets/images/HomePage/Robots/Roborace.JPG" alt="RescueTech">
+                <img src="Assets/images/HomePage/Robots/Roborace.webp" alt="RescueTech" loading="lazy">
                 <div class="bot-card-overlay">
                   <button class="bot-details-button">
                     <i class="fas fa-info-circle"></i> Details
@@ -769,24 +736,11 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
               <div class="bot-card-content">
                 <div class="bot-card-header">
                   <h3 class="bot-card-title">Robo<span class="text-accent">Race</span></h3>
-                  <div class="bot-card-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
+                  
                 </div>
-                <p class="bot-card-description">Compact search and rescue robot designed to navigate through debris with ease and speed.</p>
+                <p class="bot-card-description">A high-speed robot engineered to navigate tracks with precision and control. Optimized for agility, accuracy, and competitive racing performance.</p>
                 <div class="bot-card-specs">
-                  <div class="bot-spec">
-                    <i class="fas fa-temperature-high"></i>
-                    <span>Thermal imaging</span>
-                  </div>
-                  <div class="bot-spec">
-                    <i class="fas fa-tools"></i>
-                    <span>Rugged design</span>
-                  </div>
+                 
                 </div>
                 <div class="bot-tags">
                   <span class="bot-tag primary">Precision</span>
@@ -803,7 +757,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
                 <div class="bot-card-badge purple">
                   <i class="fas fa-mountain"></i> Climber
                 </div>
-                <img src="Assets/images/Team/Behind The Scenes/coming.jpg" alt="VerticalEdge">
+                <img src="Assets/images/HomePage/Robots/RC_Robot.webp" alt="VerticalEdge" loading="lazy">
                 <div class="bot-card-overlay">
                   <button class="bot-details-button">
                     <i class="fas fa-info-circle"></i> Details
@@ -812,76 +766,22 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
               </div>
               <div class="bot-card-content">
                 <div class="bot-card-header">
-                  <h3 class="bot-card-title">RC<span class="text-purple">Boats</span></h3>
-                  <div class="bot-card-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
-                  </div>
+                  <h3 class="bot-card-title">RC<span class="text-purple"> Boat</span></h3>
+                  
                 </div>
-                <p class="bot-card-description">Wall-climbing robot with biomimetic adhesion technology inspired by geckos for vertical infrastructure inspection.</p>
+                <p class="bot-card-description">Designed for speed and precision, our remote-controlled boat combines efficient hydrodynamics with agile handling to deliver top racing performance.</p>
                 <div class="bot-card-specs">
-                  <div class="bot-spec">
-                    <i class="fas fa-magnet"></i>
-                    <span>Adhesion tech</span>
-                  </div>
-                  <div class="bot-spec">
-                    <i class="fas fa-camera"></i>
-                    <span>HD inspection</span>
-                  </div>
+                  
                 </div>
                 <div class="bot-tags">
-                  <span class="bot-tag accent">Biomimetic</span>
-                  <span class="bot-tag dark">Inspection</span>
+                  <span class="bot-tag accent">Remote-Controlled</span>
+                  <span class="bot-tag dark">Racing</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="bot-slide">
-            <div class="bot-card">
-              <div class="bot-card-media">
-                <div class="bot-card-badge purple">
-                  <i class="fas fa-mountain"></i> Aerodynamic
-                </div>
-                <img src="Assets/images/HomePage/Robots/RoboWars.jpg" alt="VerticalEdge">
-                <div class="bot-card-overlay">
-                  <button class="bot-details-button">
-                    <i class="fas fa-info-circle"></i> Details
-                  </button>
-                </div>
-              </div>
-              <div class="bot-card-content">
-                <div class="bot-card-header">
-                  <h3 class="bot-card-title">FPV <span class="text-purple">Drone</span></h3>
-                  <div class="bot-card-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                </div>
-                <p class="bot-card-description">Wall-climbing robot with biomimetic adhesion technology inspired by geckos for vertical infrastructure inspection.</p>
-                <div class="bot-card-specs">
-                  <div class="bot-spec">
-                    <i class="fas fa-magnet"></i>
-                    <span>Adhesion tech</span>
-                  </div>
-                  <div class="bot-spec">
-                    <i class="fas fa-camera"></i>
-                    <span>HD inspection</span>
-                  </div>
-                </div>
-                <div class="bot-tags">
-                  <span class="bot-tag accent">Biomimetic</span>
-                  <span class="bot-tag dark">Inspection</span>
-                </div>
-              </div>
-            </div>
-          </div>
+         
 
         
           <div class="bot-slide">
@@ -890,7 +790,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
                 <div class="bot-card-badge purple">
                   <i class="fas fa-mountain"></i> Aerodynamic
                 </div>
-                <img src="Assets/images/HomePage/Robots/Drone.jpg" alt="VerticalEdge">
+                <img src="Assets/images/HomePage/Robots/Drone.webp" alt="VerticalEdge" loading="lazy">
                 <div class="bot-card-overlay">
                   <button class="bot-details-button">
                     <i class="fas fa-info-circle"></i> Details
@@ -900,28 +800,15 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
               <div class="bot-card-content">
                 <div class="bot-card-header">
                   <h3 class="bot-card-title">FPV <span class="text-purple">Drone</span></h3>
-                  <div class="bot-card-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
-                  </div>
+                  
                 </div>
-                <p class="bot-card-description">Wall-climbing robot with biomimetic adhesion technology inspired by geckos for vertical infrastructure inspection.</p>
+                <p class="bot-card-description">A versatile FPV drone designed for both high-speed racing and cinematic aerial videography, offering precise control, smooth flight dynamics, and immersive real-time viewing.</p>
                 <div class="bot-card-specs">
-                  <div class="bot-spec">
-                    <i class="fas fa-magnet"></i>
-                    <span>Adhesion tech</span>
-                  </div>
-                  <div class="bot-spec">
-                    <i class="fas fa-camera"></i>
-                    <span>HD inspection</span>
-                  </div>
+                  
                 </div>
                 <div class="bot-tags">
-                  <span class="bot-tag accent">Biomimetic</span>
-                  <span class="bot-tag dark">Inspection</span>
+                  <span class="bot-tag accent">FPV</span>
+                  <span class="bot-tag dark">Cinematic</span>
                 </div>
               </div>
             </div>
@@ -998,12 +885,12 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
 </section>
 
 <!-- Stories from the Workshop Section -->
-<section id="robosumo" class="section">
+<section class="section">
 <div id="kahani" class="team-stories-section animate-on-scroll">
   <div class="container">
     <div class="category-header animate-on-scroll">
-        <div class="category-badge">
-          <i class="fas "></i>
+        <div class="category-badge" class="stories-title">
+          <i class="fas fa-book"></i>
          Story Time !
         </div>
         <h2 class="section-title">Stories from the <span>Workshop</span></h2>
@@ -1019,7 +906,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         <!-- Story 1: Breakthrough Moment -->
         <div class="story-card" data-story="breakthrough">
           <div class="story-image">
-            <img src="Assets/images/Robots/Story/Sail.jpg" alt="Breakthrough moment">
+            <img src="Assets/images/Robots/Story/Sail.webp" alt="Breakthrough moment" loading="lazy">
             <div class="story-overlay"></div>
           </div> 
           <div class="story-content">
@@ -1036,7 +923,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         <!-- Story 2: Learning Experience -->
         <div class="story-card" data-story="learning">
           <div class="story-image">
-            <img src="Assets/images/Robots/Story/Acrylic.png" alt="Learning experience">
+            <img src="Assets/images/Robots/Story/Acrylic.webp" alt="Learning experience" loading="lazy">
             <div class="story-overlay">
             </div>
           </div>
@@ -1054,7 +941,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         <!-- Story 3: Team Collaboration -->
         <div class="story-card" data-story="teamwork">
           <div class="story-image">
-            <img src="assets/images/Robots/Story/Quark.jpg" alt="Team collaboration">
+            <img src="Assets/images/Robots/Story/Quark.webp" alt="Team collaboration" loading="lazy">
             <div class="story-overlay">
             </div>
           </div>
@@ -1069,10 +956,36 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
             </div>
           </div>
         </div>
-      </div>
+      
+
+<!-- Story 4: RoboWars Hyderabad -->
+<div class="story-card" data-story="hyderabad">
+    <div class="story-image">
+        <img src="Assets/images/Robots/Story/Hyd.webp"
+             alt="RoboWars Hyderabad"
+             loading="lazy">
+        <div class="story-overlay"></div>
+    </div>
+    <div class="story-content">
+        <h4>⚙️ Every Battle Leaves an Upgrade</h4>
+        <p class="story-author">
+            Devanshu Ekhar , Management Lead
+        </p>
+        <p class="story-preview">
+            Two victories. One bot destroyed in flames. A semi-final run cut short by time. The battle upgraded more than our machine...
+        </p>
+        <div class="story-tags">
+            <span class="tag">#RoboWars2026</span>
+            <span class="tag">#Hyderabad</span>
+            <span class="tag">#15kgBot</span>
+        </div>
+    </div>
+</div>
+</div>
    </div> 
 </div>
 </section>
+
 
   <!-- About Section -->
   <section id="about" class="about">
@@ -1081,7 +994,7 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
       
       <div class="about-grid">
         <div class="about-image animate-on-scroll">
-          <img src="Assets/images/HomePage/About/Bochi.png" alt="Bocchi">
+          <img src="Assets/images/HomePage/About/Bochi.png" alt="Bocchi" loading="lazy">
         </div>
         
         <div class="about-content animate-on-scroll">
@@ -1294,21 +1207,59 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
             
             <form id="contact-form">
               <div class="form-group">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+                <label for="name" class="form-label">Full Name *</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
               </div>
-              
+
               <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-input" placeholder="Your email" required>
+                <label for="email" class="form-label">Email *</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Your email address" required>
               </div>
-              
+
               <div class="form-group">
-                <label for="message" class="form-label">Message</label>
-                <textarea id="message" name="message" class="form-textarea" placeholder="Your message" required></textarea>
+                <label for="phone" class="form-label">Phone *</label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="Your phone number" required>
+              </div>
+
+              <div class="form-group">
+                <label for="college" class="form-label">College / Organization *</label>
+                <input type="text" id="college" name="college" class="form-input" placeholder="Your college or organization" required>
+              </div>
+
+              <div class="form-group">
+                <label for="roleInterested" class="form-label">Role Interested In *</label>
+                <select id="roleInterested" name="roleInterested" class="form-input" required>
+                  <option value="" disabled selected>Select a role</option>
+                  <option value="Technical Team">Technical Team</option>
+                  <option value="Designing Team">Designing Team</option>
+                  <option value="Fabrication Team">Fabrication Team</option>
+                  <option value="Media Team">Media Team</option>
+                  <option value="Management Team">Management Team</option>
+                  <option value="Sponsorship / Partnership">Sponsorship / Partnership</option>
+                  <option value="Volunteer">Volunteer</option>
+                  <option value="Event Collaboration">Event Collaboration</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="skills" class="form-label">Skills *</label>
+                <input type="text" id="skills" name="skills" class="form-input" placeholder="e.g. CAD, Arduino, Photography" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Message / Reason *</label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="Tell us why you want to collaborate or join us" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="portfolioLink" class="form-label">Portfolio / LinkedIn (optional)</label>
+                <input type="url" id="portfolioLink" name="portfolioLink" class="form-input" placeholder="https://...">
               </div>
               
               <button type="submit" class="form-submit">Send Message</button>
+
+              <div id="contact-form-status" style="margin-top:0.75rem;font-size:0.9rem;text-align:center;"></div>
             </form>
             
             <div class="social-section">
@@ -1341,24 +1292,25 @@ It is in this spirit that we value our bond with the <b>Texcelerators</b>. Their
         <div>
           <div class="footer-logo">
             <div class="footer-logo-image">
-              <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelerators Logo">
+              <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelerators Logo" loading="lazy">
             </div>
             <h3 class="logo-text">
-              <span>TEX</span>CELERATORS
+              <a href="#home" class="footer-logo-link">
+                <span>TEX</span>CELERATORS
+              </a>
             </h3>
           </div>
+        </a>
           <p class="footer-description">
             Pioneering the future of robotics through innovation, collaboration, and excellence.
           </p>
           <p class="footer-copyright">
             © <script>document.write(new Date().getFullYear())</script> Texcelerators Robotics Club. All rights reserved.
           </p>
-          <pre >Built, not bought.
-Coded with caffeine ☕ & curiosity.
-Made with ❤️ by Pranay Gourkar and Team 🚀
-            <a href="https://www.instagram.com/not_pratikkk/" target="_blank" rel="noopener noreferrer" class="social-link bg-instagram" aria-label="Instagram">
+          <pre >
+            <!--a href="https://www.instagram.com/not_pratikkk/" target="_blank" rel="noopener noreferrer" class="social-link bg-instagram" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
-          </a> </pre>
+          </a>--></pre>
           
         </div>
         
@@ -1372,7 +1324,7 @@ Made with ❤️ by Pranay Gourkar and Team 🚀
               <a href="#achievements" class="footer-link">Achievements</a>
             </li>
             <li class="footer-link-item">
-              <a href="#" class="footer-link">Team</a>
+              <a href="Team.html" class="footer-link">Team</a>
             </li>
             <li class="footer-link-item">
               <a href="#bots" class="footer-link">Our Robots</a>
@@ -1383,15 +1335,21 @@ Made with ❤️ by Pranay Gourkar and Team 🚀
             <li class="footer-link-item">
               <a href="#contact" class="footer-link">Contact</a>
             </li>
+            <li class="footer-link-item">
+              <a href="index.html#contact" class="footer-link">Join_Us</a>
+            </li>
+            <li class="footer-link-item">
+              <a href="login.html" class="footer-link">Member Portal</a>
+            </li>
           </ul>
         </div>
         
         <div>
           <h4 class="footer-section-title">Programs</h4>
           <ul class="footer-links">
-            <li class="footer-link-item">
-              <a href="#" class="footer-link">Workshops</a>
-            </li>
+            <!--li class="footer-link-item">
+              <a href="workshop.html" class="footer-link">Workshops</a>
+            </li>-->
             <li class="footer-link-item">
               <a href="#" class="footer-link">Competitions</a>
             </li>
@@ -1444,6 +1402,6 @@ Made with ❤️ by Pranay Gourkar and Team 🚀
   </footer>
 </main>
   <!-- JavaScript -->
-  <script src="Homepage.js"></script>
+  <script src="public-home.js"></script>
   </body>
   </html>

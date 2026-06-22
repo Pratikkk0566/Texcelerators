@@ -1,0 +1,900 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Raudra – Texcelerators RoboWars Bot | SVPCET Robotics Club</title>
+  <meta name="description" content="Raudra – the fearsome combat robot of Texcelerators Robotics Club, SVPCET Nagpur. Explore its build journey, fabrication, match videos, and competition achievements." />
+  <meta name="keywords" content="Raudra, RoboWars, Texcelerators, Combat Robot, SVPCET, Robotics Club, Battle Bot, Nagpur" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Texcelerators Robotics Club, SVPCET Nagpur" />
+
+  <meta property="og:title" content="Raudra – Texcelerators RoboWars Bot" />
+  <meta property="og:description" content="Meet Raudra, our battle-hardened combat robot. See the build, the battles, and the glory." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="Assets/images/HomePage/Robots/RoboWars.jpg" />
+
+  <link rel="icon" href="Assets/images/Nav-Side-Footer/MainLogo.png" type="image/x-icon" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600&family=Audiowide&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="Robowars.css" />
+</head>
+<body>
+
+  <!-- ===== PAGE LOADING SCREEN ===== -->
+<div id="rw-loader" class="rw-loader">
+  <canvas id="rw-loader-canvas" class="rw-loader-canvas"></canvas>
+  <div class="rw-loader-content">
+    <div class="rw-loader-badge">TEXCELERATORS PRESENTS</div>
+    <div class="rw-loader-title-wrap">
+      <span class="rw-loader-title" id="rw-loader-title">RAUDRA</span>
+      <span class="rw-loader-hindi">रौद्र</span>
+    </div>
+    <div class="rw-loader-meaning">Sanskrit · Fierce · Wrathful</div>
+    <div class="rw-loader-bar-wrap">
+      <div class="rw-loader-bar" id="rw-loader-bar"></div>
+    </div>
+  </div>
+</div>
+<!-- ===== END LOADING SCREEN ===== -->
+
+<div id="rw-cursor-dot" class="rw-cursor-dot"></div>
+<div id="rw-cursor-ring" class="rw-cursor-ring"></div>
+
+<!-- Back to Top button -->
+<button id="rw-back-top" class="rw-back-top" aria-label="Back to top" title="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+
+
+  <!-- ===== NAVIGATION HEADER ===== -->
+  <header id="main-header">
+    <div class="navbar-container">
+      <div class="navbar-logo left-logo">
+        <div class="logo-image">
+          <img src="Assets/images/Nav-Side-Footer/SvpcetLogo.png" alt="SVPCET">
+        </div>
+      </div>
+      <div class="navbar-text left-text font-addition svpcet-banner">
+        <img src="Assets/images/Nav-Side-Footer/SvpcetBanner.png" alt="St. Vincent Pallotti College of Engineering and Technology" class="svpcet-banner-img">
+      </div>
+      <div class="mobile-center">
+        <div class="mobile-college-logo">
+          <img src="Assets/images/Nav-Side-Footer/SvpcetLogo.png" alt="SVPCET">
+        </div>
+        <div class="mobile-club-logo">
+          <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelerators">
+        </div>
+        <div class="mobile-text">
+          <span class="mobile-title">TEXCELERATORS</span>
+          <span class="mobile-subtitle">Robo Club</span>
+        </div>
+      </div>
+      <div class="hamburger-container">
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+      <div class="navbar-text right-text font-addition">
+        <span class="logo-text"><span>TEX</span>CELERATORS</span>
+        <span class="tagline">Robo Club</span>
+      </div>
+      <div class="navbar-logo right-logo">
+        <div class="logo-image">
+          <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelerators">
+        </div>
+      </div>
+    </div>
+
+    <nav id="nav-menu" class="nav-menu">
+      <div class="nav-menu-content">
+        <a href="index.html" class="nav-link" data-section="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="index.html#achievements" class="nav-link" data-section="achievements">
+          <i class="fas fa-trophy"></i>
+          <span>Achievements</span>
+        </a>
+        <a href="Team.html" class="nav-link" data-section="team">
+          <i class="fas fa-users"></i>
+          <span>Team</span>
+        </a>
+        <a href="index.html#bots" class="nav-link" data-section="bots">
+          <i class="fas fa-robot"></i>
+          <span>Robots</span>
+        </a>
+        <a href="Robowars.html" class="nav-link active" data-section="robowars">
+          <i class="fas fa-fire-flame-curved"></i>
+          <span>RoboWars</span>
+        </a>
+        <a href="workshop.html" class="nav-link" data-section="workshop">
+          <i class="fas fa-university"></i>
+          <span>Workshops</span>
+        </a>
+        <a href="index.html#about" class="nav-link" data-section="about">
+          <i class="fas fa-info-circle"></i>
+          <span>About Us</span>
+        </a>
+        <a href="index.html#contact" class="nav-link" data-section="contact">
+          <i class="fas fa-envelope"></i>
+          <span>Contact</span>
+        </a>
+        <a href="Team.html#join-section" class="nav-link">
+          <i class="fa-solid fa-handshake-angle"></i>
+          <span>Join Us</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-content">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelerators">
+        </div>
+        <div class="sidebar-brand font-addition">
+          <span class="sidebar-title">TEXCELERATORS</span>
+          <span class="sidebar-subtitle">Robo Club</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">
+          <i class="fas fa-home" style="color:#B197FC;"></i><span>Home</span>
+        </a>
+        <a href="#about-raudra" class="sidebar-link">
+          <i class="fas fa-robot" style="color:#B197FC;"></i><span>About Raudra</span>
+        </a>
+        <a href="#specs" class="sidebar-link">
+          <i class="fas fa-cog" style="color:#B197FC;"></i><span>Specs</span>
+        </a>
+        <a href="#journey" class="sidebar-link">
+          <i class="fas fa-flag-checkered" style="color:#B197FC;"></i><span>Journey</span>
+        </a>
+        <a href="#gallery" class="sidebar-link">
+          <i class="fas fa-images" style="color:#B197FC;"></i><span>Gallery</span>
+        </a>
+        <a href="#videos" class="sidebar-link">
+          <i class="fab fa-youtube" style="color:#B197FC;"></i><span>Videos</span>
+        </a>
+        <a href="#bts" class="sidebar-link">
+          <i class="fas fa-tools" style="color:#B197FC;"></i><span>Behind Build</span>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="rw-hero">
+      <div class="rw-hero-bg-overlay"></div>
+      <img src="Assets/images/HomePage/Robots/RoboWars.jpg" alt="Raudra Combat Robot" class="rw-hero-img" />
+      <canvas id="raudraFireCanvas"></canvas>
+      <div class="rw-hero-content">
+        <div class="rw-hero-badge">
+          <i class="fas fa-robot"></i>
+          <span>Texcelerators RoboWars</span>
+        </div>
+        <h1 class="rw-hero-title">
+          <span class="rw-title-line">MEET</span>
+          <span class="rw-title-main">Raudra</span>
+          <span class="rw-title-hindi">रौद्र</span>
+          <span class="rw-title-meaning">Sanskrit · fierce · wrathful</span>
+        </h1>
+       <p class="rw-hero-desc rw-typewriter-wrap">
+  <span 
+    id="rw-typewriter" 
+    class="rw-typewriter-text" 
+    data-text="Born from steel, shaped by passion — our combat bot that battles its way through every arena it enters."
+  ></span><span class="rw-typewriter-cursor">|</span>
+</p>
+        <div class="rw-hero-stats">
+          <div class="rw-stat">
+            <span class="rw-stat-num" data-count="15">0</span><span class="rw-stat-unit">kg</span>
+            <span class="rw-stat-label">Weight Class</span>
+          </div>
+          <div class="rw-stat-divider"></div>
+          <div class="rw-stat">
+            <span class="rw-stat-num" data-count="2">0</span><span class="rw-stat-unit"></span>
+            <span class="rw-stat-label">Events Competed</span>
+          </div>
+          <div class="rw-stat-divider"></div>
+          <div class="rw-stat">
+            <span class="rw-stat-num" data-count="1">0</span><span class="rw-stat-unit"></span>
+            <span class="rw-stat-label">Podium Finish</span>
+          </div>
+        </div>
+        <div class="rw-hero-cta">
+          <a href="#about-raudra" class="rw-btn rw-btn-primary">
+            <i class="fas fa-eye"></i> Discover Raudra
+          </a>
+          <a href="#videos" class="rw-btn rw-btn-ghost">
+            <i class="fab fa-youtube"></i> Watch Battles
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT RAUDRA ===== -->
+    <section id="about-raudra" class="rw-section rw-about">
+      <div class="container">
+        <div class="rw-section-header animate-on-scroll">
+          <div class="rw-section-label">
+            <i class="fas fa-fire-flame-curved"></i> OUR COMBAT BOT
+          </div>
+          <h2 class="rw-section-title">The Legend of <span class="gradient-fire">Raudra</span></h2>
+        </div>
+        <div class="rw-about-grid animate-on-scroll">
+          <div class="rw-about-visual">
+            <div class="rw-about-img-wrap rw-showcase-wrap" id="rwShowcase">
+
+  <!-- Slides — add or remove slides here, order = rotation order -->
+  <div class="rw-showcase-slide active">
+    <img src="Assets/images/HomePage/Robots/RoboWars.jpg" alt="Raudra – Competition Ready" class="rw-about-main-img" />
+  </div>
+  <div class="rw-showcase-slide">
+    <img src="Assets/images/Robots/Behind The Build/sketched.png" alt="Raudra – Blueprint Sketch" class="rw-about-main-img" />
+  </div>
+  <div class="rw-showcase-slide">
+    <img src="Assets/images/Robots/Story/Acrylic.png" alt="Raudra – Acrylic Prototype" class="rw-about-main-img" />
+  </div>
+  <div class="rw-showcase-slide">
+    <img src="Assets/images/Robots/Story/Quark.jpg" alt="Raudra – Quark Arena" class="rw-about-main-img" />
+  </div>
+  <div class="rw-showcase-slide">
+    <img src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" alt="Raudra – Podium Win" class="rw-about-main-img" />
+  </div>
+
+  <!-- Glow + badge stay on top of slides -->
+  <div class="rw-about-img-glow"></div>
+
+  <!-- Caption bar — text updates with each slide -->
+  <div class="rw-showcase-caption" id="rwShowcaseCaption">Competition Ready</div>
+
+  <!-- Dot indicators -->
+  <div class="rw-showcase-dots" id="rwShowcaseDots">
+    <span class="rw-showcase-dot active" data-index="0"></span>
+    <span class="rw-showcase-dot" data-index="1"></span>
+    <span class="rw-showcase-dot" data-index="2"></span>
+    <span class="rw-showcase-dot" data-index="3"></span>
+    <span class="rw-showcase-dot" data-index="4"></span>
+  </div>
+
+  <!-- Pause indicator shown on hover -->
+  <div class="rw-showcase-pause-icon"><i class="fas fa-pause"></i></div>
+
+</div>
+            <div class="rw-about-sub-imgs">
+              <div class="rw-sub-img-card">
+                <img src="Assets/images/Robots/Behind The Build/sketched.png" alt="Blueprint" />
+                <span>Blueprint</span>
+              </div>
+              <div class="rw-sub-img-card">
+                <img src="Assets/images/Robots/Story/Acrylic.png" alt="Fabrication" />
+                <span>Fabrication</span>
+              </div>
+            </div>
+          </div>
+          <div class="rw-about-text">
+            <p class="rw-about-para">
+              <strong>Raudra</strong> — meaning <em>"fierce"</em> or <em>"wrathful"</em> in Sanskrit — is the combat robot that carries the heart and soul of Texcelerators into the arena. Every weld, every bolt, every circuit reflects countless nights of dedication.
+            </p>
+            <p class="rw-about-para">
+              Built to dominate the 15kg weight class, Raudra is engineered for one purpose: to win. From its hardened chassis to its devastating weapon system, every design decision was made with battle in mind.
+            </p>
+            <p class="rw-about-para">
+              From humble sketches on paper to a competition-hardened machine — Raudra's journey is the story of Texcelerators' growth, grit, and glory.
+            </p>
+            <div class="rw-about-highlights">
+              <div class="rw-highlight">
+                <div class="rw-highlight-icon"><i class="fas fa-shield-halved"></i></div>
+                <div><strong>Hardened Chassis</strong><p>Precision-cut steel frame built to withstand brutal impacts</p></div>
+              </div>
+              <div class="rw-highlight">
+                <div class="rw-highlight-icon"><i class="fas fa-bolt"></i></div>
+                <div><strong>Weapon System</strong><p>High-torque weapon motor delivering maximum destructive force</p></div>
+              </div>
+              <div class="rw-highlight">
+                <div class="rw-highlight-icon"><i class="fas fa-microchip"></i></div>
+                <div><strong>Precision Control</strong><p>Responsive drive system for superior arena maneuverability</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SPECS SECTION ===== -->
+    <section id="specs" class="rw-section rw-specs">
+      <div class="container">
+        <div class="rw-section-header animate-on-scroll">
+          <div class="rw-section-label"><i class="fas fa-cog fa-spin-slow"></i> TECHNICAL DATA</div>
+          <h2 class="rw-section-title">Raudra's <span class="gradient-fire">Specifications</span></h2>
+          <p class="rw-section-desc">Every number tells a story of engineering precision.</p>
+        </div>
+        <div class="rw-specs-grid animate-on-scroll">
+          <div class="rw-spec-card">
+            <div class="rw-spec-icon"><i class="fas fa-weight-scale"></i></div>
+            <div class="rw-spec-value">15 <span>kg</span></div>
+            <div class="rw-spec-label">Weight Class</div>
+          </div>
+          <div class="rw-spec-card">
+            <div class="rw-spec-icon"><i class="fas fa-ruler-combined"></i></div>
+            <div class="rw-spec-value">30×30 <span>cm</span></div>
+            <div class="rw-spec-label">Arena Footprint</div>
+          </div>
+          <div class="rw-spec-card">
+            <div class="rw-spec-icon"><i class="fas fa-bolt"></i></div>
+            <div class="rw-spec-value">24 <span>V</span></div>
+            <div class="rw-spec-label">Drive Voltage</div>
+          </div>
+          <div class="rw-spec-card">
+            <div class="rw-spec-icon"><i class="fas fa-rotate"></i></div>
+            <div class="rw-spec-value">3000 <span>rpm</span></div>
+            <div class="rw-spec-label">Weapon Speed</div>
+          </div>
+          <div class="rw-spec-card">
+            <div class="rw-spec-icon"><i class="fas fa-car-battery"></i></div>
+            <div class="rw-spec-value">LiPo <span>6S</span></div>
+            <div class="rw-spec-label">Battery</div>
+          </div>
+          <div class="rw-spec-card">
+            <div class="rw-spec-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="rw-spec-value">HARDOX <span>Steel</span></div>
+            <div class="rw-spec-label">Chassis Material</div>
+          </div>
+          <div class="rw-spec-card">
+            <div class="rw-spec-icon"><i class="fas fa-gamepad"></i></div>
+            <div class="rw-spec-value">RC <span>2.4GHz</span></div>
+            <div class="rw-spec-label">Control System</div>
+          </div>
+          <div class="rw-spec-card">
+            <div class="rw-spec-icon"><i class="fas fa-fire"></i></div>
+            <div class="rw-spec-value">Drum <span>Type</span></div>
+            <div class="rw-spec-label">Weapon Type</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ===== COMPETITION JOURNEY (Year-Based Accordion) — COMMENTED OUT =====
+<section id="journey-old-accordion" class="rw-section rw-journey">
+  ... (entire old accordion section preserved here as reference) ...
+</section>
+===== END COMMENTED OUT ACCORDION ===== -->
+
+<!-- ===== RAUDRA'S BATTLE JOURNEY — FLAT TIMELINE ===== -->
+<section id="journey" class="rw-section rw-journey">
+  <div class="container">
+
+    <div class="rw-section-header animate-on-scroll">
+      <div class="rw-section-label"><i class="fas fa-flag-checkered"></i> COMPETITION HISTORY</div>
+      <h2 class="rw-section-title">Raudra's <span class="gradient-fire">Battle Journey</span></h2>
+      <p class="rw-section-desc">We're just getting started — but every arena shapes us.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         EVENT 1 — IIT Bombay Techfest 2024 (Debut)
+    ══════════════════════════════════════════ -->
+    <div class="rw-je-block animate-on-scroll">
+
+      <!-- Top: Description -->
+      <div class="rw-je-desc-panel">
+        <div class="rw-je-top-row">
+          <div class="rw-je-year-pill">2024</div>
+          <span class="rw-je-tag debut">Debut</span>
+        </div>
+        <div class="rw-je-meta-row">
+          <span class="rw-event-date"><i class="fas fa-calendar"></i> December 2024</span>
+          <span class="rw-event-location"><i class="fas fa-map-marker-alt"></i> IIT Bombay, Mumbai</span>
+        </div>
+        <h3 class="rw-je-title">IIT Bombay – Techfest 2024</h3>
+        <p class="rw-je-desc">
+          Raudra's first competitive outing at one of India's biggest tech festivals. We stepped into the arena raw, hungry, and ready to learn. Facing veteran teams with machines built over years of experience, we held our ground. A baptism by fire — and we came out stronger, sharper, and hungrier than ever before.
+        </p>
+      </div>
+
+      <!-- Middle: Photos -->
+      <div class="rw-je-photos-panel">
+        <div class="rw-je-photos-label"><i class="fas fa-images"></i> Event Photos</div>
+        <div class="rw-je-photos-grid">
+          <div class="rw-je-photo-card">
+            <img src="Assets/images/HomePage/Achivements/IITB2024.jpg" alt="IIT Bombay Techfest 2024" loading="lazy" />
+            <span>IIT Bombay Techfest 2024</span>
+          </div>
+          <div class="rw-je-photo-card">
+            <img src="Assets/images/HomePage/Main SlideShow/IITB2024.JPG" alt="Team at IIT Bombay" loading="lazy" />
+            <span>Team at the Arena</span>
+          </div>
+          <!-- Add more event photos here: copy one rw-je-photo-card block -->
+        </div>
+      </div>
+
+      <!-- Bottom: Videos -->
+      <div class="rw-je-videos-panel">
+        <div class="rw-je-videos-label"><i class="fab fa-youtube"></i> Match Videos</div>
+        <div class="rw-je-videos-grid">
+          <!-- Uncomment and replace YOUR_VIDEO_ID when you have footage
+          <div class="rw-je-video-card">
+            <div class="rw-video-label"><i class="fab fa-youtube"></i> Match 1</div>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+              title="Raudra – Techfest IIT Bombay 2024"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          -->
+          <div class="rw-je-no-video">
+            <i class="fas fa-video-slash"></i>
+            <span>Match recordings coming soon</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /EVENT 1 -->
+
+
+    <!-- ══════════════════════════════════════════
+         EVENT 2 — BITS Goa Quark 2025 (Victory 🏆)
+    ══════════════════════════════════════════ -->
+    <div class="rw-je-block rw-je-win-block animate-on-scroll">
+
+      <!-- Top: Description -->
+      <div class="rw-je-desc-panel">
+        <div class="rw-je-top-row">
+          <div class="rw-je-year-pill">2025</div>
+          <span class="rw-je-tag win">Victory 🏆</span>
+        </div>
+        <div class="rw-je-meta-row">
+          <span class="rw-event-date"><i class="fas fa-calendar"></i> February 2025</span>
+          <span class="rw-event-location"><i class="fas fa-map-marker-alt"></i> BITS Pilani, Goa Campus</span>
+        </div>
+        <h3 class="rw-je-title">BITS Goa – Quark 2025 <span class="rw-trophy-emoji">🏆</span></h3>
+        <p class="rw-je-desc">
+          The moment Raudra announced itself to the world. At BITS Goa's prestigious Quark festival, we went battle after battle against seasoned teams from premier institutions across India — and stood on the podium. The crowd, the arena, the sparks flying — this is exactly what we build for. Every sleepless night in the workshop paid off in that single triumphant moment.
+        </p>
+
+        <!-- Opponents Beaten -->
+        <div class="rw-beats">
+          <span class="rw-beats-label"><i class="fas fa-bolt"></i> Opponents Beaten</span>
+          <ul class="rw-beats-list">
+            <li><i class="fas fa-times-circle"></i> Update with opponent team name here</li>
+            <!-- <li><i class="fas fa-times-circle"></i> Team Two — NIT Abc</li> -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Middle: Photos -->
+      <div class="rw-je-photos-panel">
+        <div class="rw-je-photos-label"><i class="fas fa-images"></i> Event Photos</div>
+        <div class="rw-je-photos-grid">
+          <div class="rw-je-photo-card rw-je-photo-win">
+            <img src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" alt="BITS Goa Quark 2025 – Raudra wins" loading="lazy" />
+            <span>Podium Moment 🏆</span>
+          </div>
+          <div class="rw-je-photo-card">
+            <img src="Assets/images/HomePage/Main SlideShow/BITSGATE2025.JPG" alt="Team at BITS Gate" loading="lazy" />
+            <span>Team at BITS Gate</span>
+          </div>
+          <div class="rw-je-photo-card">
+            <img src="Assets/images/Robots/Story/Quark.jpg" alt="Quark Arena Battle" loading="lazy" />
+            <span>Quark Arena Battle</span>
+          </div>
+          <div class="rw-je-photo-card">
+            <img src="Assets/images/Robots/Story/Sail.jpg" alt="Competition Action" loading="lazy" />
+            <span>Competition Action</span>
+          </div>
+          <!-- Add more event photos here -->
+        </div>
+      </div>
+
+      <!-- Bottom: Videos -->
+      <div class="rw-je-videos-panel">
+        <div class="rw-je-videos-label"><i class="fab fa-youtube"></i> Match Videos</div>
+        <div class="rw-je-videos-grid">
+          <div class="rw-je-video-card">
+            <div class="rw-video-label"><i class="fab fa-youtube"></i> Match Highlight</div>
+            <iframe src="https://www.youtube.com/embed/PUoVPAmEjNM"
+              title="Raudra – Match Highlight, Quark BITS Goa 2025"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <!-- Add more match videos here: copy one rw-je-video-card block -->
+          <!-- <div class="rw-je-video-card">
+            <div class="rw-video-label"><i class="fab fa-youtube"></i> Match 2</div>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" ...></iframe>
+          </div> -->
+        </div>
+      </div>
+
+    </div><!-- /EVENT 2 -->
+
+
+    <!-- ══════════════════════════════════════════
+         2026 — Season in Progress
+    ══════════════════════════════════════════ -->
+    <div class="rw-je-block rw-je-upcoming animate-on-scroll">
+      <div class="rw-upcoming-placeholder">
+        <div class="rw-upcoming-icon"><i class="fas fa-robot"></i></div>
+        <h4>Raudra is evolving.</h4>
+        <p>New weapon system, sharper strategy, hungrier team. The 2026 campaign is being planned — watch this space.</p>
+        <div class="rw-upcoming-tags">
+          <span><i class="fas fa-wrench"></i> Upgrading</span>
+          <span><i class="fas fa-brain"></i> Strategising</span>
+          <span><i class="fas fa-bullseye"></i> Events TBA</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== END BATTLE JOURNEY ===== -->
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section id="gallery" class="rw-section rw-gallery-section">
+      <div class="container">
+        <div class="rw-section-header animate-on-scroll">
+          <div class="rw-section-label"><i class="fas fa-images"></i> PHOTO CHRONICLE</div>
+          <h2 class="rw-section-title">The <span class="gradient-fire">Gallery</span></h2>
+          <p class="rw-section-desc">From workshop sparks to arena glory — every frame of Raudra's story.</p>
+        </div>
+
+        <div class="rw-gallery-filters animate-on-scroll">
+          <button class="rw-filter-btn active" data-filter="all">All</button>
+          <button class="rw-filter-btn" data-filter="fabrication">Fabrication</button>
+          <button class="rw-filter-btn" data-filter="competition">Competition</button>
+          <button class="rw-filter-btn" data-filter="bts">Behind the Scenes</button>
+        </div>
+
+        <div class="rw-gallery-grid animate-on-scroll" id="galleryGrid">
+
+          <div class="rw-gallery-item fabrication" data-src="Assets/images/Robots/Behind The Build/sketched.png" data-caption="Raudra — The Blueprint. Every great machine starts with a sketch.">
+            <img src="Assets/images/Robots/Behind The Build/sketched.png" alt="Raudra Blueprint" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>Blueprint & Design</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item fabrication" data-src="Assets/images/Robots/Story/Acrylic.png" data-caption="Acrylic chassis prototype — testing fit and form before the final steel build.">
+            <img src="Assets/images/Robots/Story/Acrylic.png" alt="Acrylic Prototype" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>Acrylic Prototype</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item competition" data-src="Assets/images/Robots/Story/Quark.jpg" data-caption="Quark 2025, BITS Goa — our podium moment!">
+            <img src="Assets/images/Robots/Story/Quark.jpg" alt="Quark Competition" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>Quark 2025, BITS Goa</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item competition" data-src="Assets/images/Robots/Story/Sail.jpg" data-caption="Sail competition — Raudra at the arena.">
+            <img src="Assets/images/Robots/Story/Sail.jpg" alt="Sail Competition" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>Competition Arena</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item competition" data-src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" data-caption="BITS Goa 2025 — Podium Finish!">
+            <img src="Assets/images/HomePage/Achivements/BITSG2025Win.jpg" alt="BITS Goa Win" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>BITS Goa 2025 Win 🏆</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item competition" data-src="Assets/images/HomePage/Main SlideShow/BITSGATE2025.JPG" data-caption="The team at BITS Gate — moments before the battle begins.">
+            <img src="Assets/images/HomePage/Main SlideShow/BITSGATE2025.JPG" alt="BITS Gate 2025" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>BITS Gate 2025</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item competition" data-src="Assets/images/HomePage/Main SlideShow/IITB2024.JPG" data-caption="IIT Bombay Techfest 2024 — competing on the biggest stage.">
+            <img src="Assets/images/HomePage/Main SlideShow/IITB2024.JPG" alt="IITB 2024" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>IIT Bombay 2024</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item competition" data-src="Assets/images/HomePage/Main SlideShow/WhatsApp Image 2026-06-04 at 3.42.16 PM.jpeg" data-caption="The squad ready for battle — fuelled by passion and chai.">
+            <img src="Assets/images/HomePage/Main SlideShow/WhatsApp Image 2026-06-04 at 3.42.16 PM.jpeg" alt="Team ready" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>Battle Day</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item bts" data-src="Assets/images/HomePage/Main SlideShow/WhatsApp Image 2026-06-04 at 3.58.10 PM.jpeg" data-caption="Behind the scenes — the real magic happens in the workshop.">
+            <img src="Assets/images/HomePage/Main SlideShow/WhatsApp Image 2026-06-04 at 3.58.10 PM.jpeg" alt="Workshop" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>Workshop Moments</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item bts" data-src="Assets/images/HomePage/Main SlideShow/Soldering.jpg" data-caption="Soldering sessions at midnight — the grind never stops.">
+            <img src="Assets/images/HomePage/Main SlideShow/Soldering.jpg" alt="Soldering" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>Late Night Soldering</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item competition" data-src="Assets/images/HomePage/Achivements/TECHNEX2025.jpg" data-caption="Technex 2025 — Raudra battles on.">
+            <img src="Assets/images/HomePage/Achivements/TECHNEX2025.jpg" alt="Technex 2025" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>Technex 2025</span>
+            </div>
+          </div>
+
+          <div class="rw-gallery-item competition" data-src="Assets/images/HomePage/Achivements/IITB2024.jpg" data-caption="IIT Bombay 2024 achievement.">
+            <img src="Assets/images/HomePage/Achivements/IITB2024.jpg" alt="IITB Achievement" loading="lazy" />
+            <div class="rw-gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>IITB 2024 Achievement</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="lightbox" class="rw-lightbox">
+      <button class="rw-lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+      <button class="rw-lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+      <button class="rw-lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+      <div class="rw-lightbox-inner">
+        <img id="lightboxImg" src="" alt="" />
+        <p id="lightboxCaption"></p>
+      </div>
+    </div>
+
+    <!-- ===== MATCH VIDEOS SECTION ===== -->
+    <section id="videos" class="rw-section rw-videos-section">
+      <div class="container">
+        <div class="rw-section-header animate-on-scroll">
+          <div class="rw-section-label"><i class="fab fa-youtube"></i> BATTLE ARCHIVE</div>
+          <h2 class="rw-section-title">Raudra in <span class="gradient-fire">Action</span></h2>
+          <p class="rw-section-desc">Watch the chaos unfold. Match recordings, highlights, and behind-the-scenes footage.</p>
+        </div>
+
+        <div class="rw-videos-grid animate-on-scroll">
+
+          <!-- Replace the src YouTube video IDs (after /embed/) with your actual YouTube video IDs -->
+
+          <div class="rw-video-card">
+            <div class="rw-video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/PUoVPAmEjNM"
+                title="Raudra RoboWars Match 1"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="rw-video-info">
+              <h3><i class="fas fa-sword"></i> Match Highlight – BITS Goa Quark 2025</h3>
+              <p>Raudra's battle at BITS Goa — the match that secured us a podium finish.</p>
+            </div>
+          </div>
+
+          <div class="rw-video-card">
+            <div class="rw-video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Raudra RoboWars Match 2"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="rw-video-info">
+              <h3><i class="fas fa-sword"></i> IIT Bombay Techfest 2024</h3>
+              <p>Raudra vs top bots at one of India's biggest RoboWars arenas.</p>
+            </div>
+          </div>
+
+          <div class="rw-video-card">
+            <div class="rw-video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Raudra Build Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="rw-video-info">
+              <h3><i class="fas fa-tools"></i> The Build — Raudra v2</h3>
+              <p>A look inside the workshop — fabricating Raudra from scratch for the 2024 season.</p>
+            </div>
+          </div>
+
+          <div class="rw-video-card">
+            <div class="rw-video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Raudra NIT Nagpur"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="rw-video-info">
+              <h3><i class="fas fa-fire"></i> NIT Nagpur – Axis 2023</h3>
+              <p>Raudra's fierce debut season — competing close to home and proving its mettle.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="rw-youtube-cta animate-on-scroll">
+          <a href="https://www.youtube.com/@Texcelrators" target="_blank" class="rw-btn rw-btn-youtube">
+            <i class="fab fa-youtube"></i> Watch All Videos on YouTube
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BEHIND THE BUILD ===== -->
+    <section id="bts" class="rw-section rw-bts-section">
+      <div class="container">
+        <div class="rw-section-header animate-on-scroll">
+          <div class="rw-section-label"><i class="fas fa-tools"></i> BEHIND THE BUILD</div>
+          <h2 class="rw-section-title">From <span class="gradient-fire">Workshop</span> to Arena</h2>
+          <p class="rw-section-desc">The real story is in the sleepless nights, the grinding sparks, and the moments no one sees.</p>
+        </div>
+
+        <div class="rw-bts-grid animate-on-scroll">
+          <div class="rw-bts-card large">
+            <img src="Assets/images/HomePage/Main SlideShow/Soldering.jpg" alt="Soldering" loading="lazy" />
+            <div class="rw-bts-overlay">
+              <div class="rw-bts-text">
+                <h3>The Grind</h3>
+                <p>Late nights and early mornings — soldering, wiring, testing, and repeating until it's perfect.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rw-bts-card">
+            <img src="Assets/images/Robots/Behind The Build/sketched.png" alt="Sketching" loading="lazy" />
+            <div class="rw-bts-overlay">
+              <div class="rw-bts-text">
+                <h3>Design Phase</h3>
+                <p>Every battle begins with pen on paper — CAD designs, stress calculations, weight budgets.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rw-bts-card">
+            <img src="Assets/images/Robots/Story/Acrylic.png" alt="Prototyping" loading="lazy" />
+            <div class="rw-bts-overlay">
+              <div class="rw-bts-text">
+                <h3>Prototyping</h3>
+                <p>Acrylic prototypes before committing to steel — fit checks, clearance tests, assembly validation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rw-bts-card">
+            <img src="Assets/images/HomePage/Main SlideShow/WhatsApp Image 2026-06-04 at 3.58.10 PM.jpeg" alt="Workshop" loading="lazy" />
+            <div class="rw-bts-overlay">
+              <div class="rw-bts-text">
+                <h3>Workshop Sessions</h3>
+                <p>The team assembled, working together — fabricating, debugging, and pushing the limits.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rw-bts-card large">
+            <img src="Assets/images/HomePage/Main SlideShow/WhatsApp Image 2026-06-04 at 3.42.16 PM.jpeg" alt="Team" loading="lazy" />
+            <div class="rw-bts-overlay">
+              <div class="rw-bts-text">
+                <h3>The Team Behind Raudra</h3>
+                <p>It takes a village to build a battle bot — designers, fabricators, programmers, and the spirit that holds it all together.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rw-bts-quote animate-on-scroll">
+          <blockquote>
+            <i class="fas fa-quote-left"></i>
+            <p>    We don't just build robots. We pour our souls into them. Every weld, every wire — that's us. It's not just about the machines; it's about the passion, the late nights, the companionship. We are Texcelerators — and this is our story.</p>
+            <cite>— Texcelerators RoboWars Team</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <div class="footer-logo-image">
+                <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelerators Logo">
+              </div>
+              <h3 class="logo-text"><span>TEX</span>CELERATORS</h3>
+            </div>
+            <p class="footer-description">
+              Pioneering the future of robotics through innovation, collaboration, and excellence.
+            </p>
+            <p class="footer-copyright">
+              © <script>document.write(new Date().getFullYear())</script> Texcelerators Robotics Club. All rights reserved.
+            </p>
+            <pre class="footer-credit">Built, not bought.
+Coded with caffeine ☕ & curiosity.
+Made with ❤️ by Pranay Gourkar and Team 🚀</pre>
+          </div>
+
+          <div>
+            <h4 class="footer-section-title">Quick Links</h4>
+            <ul class="footer-links">
+              <li class="footer-link-item"><a href="index.html" class="footer-link">Home</a></li>
+              <li class="footer-link-item"><a href="#about-raudra" class="footer-link">About Raudra</a></li>
+              <li class="footer-link-item"><a href="#gallery" class="footer-link">Gallery</a></li>
+              <li class="footer-link-item"><a href="#videos" class="footer-link">Match Videos</a></li>
+              <li class="footer-link-item"><a href="#journey" class="footer-link">Competition Journey</a></li>
+              <li class="footer-link-item"><a href="#bts" class="footer-link">Behind The Build</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-section-title">Contact Info</h4>
+            <ul class="footer-links">
+              <li class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-map-pin"></i></div>
+                <span class="contact-text">St. Vincent Pallotti College of Engineering and Technology, Nagpur 441108</span>
+              </li>
+              <li class="contact-item">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <a href="mailto:texcelerators@gmail.com" class="contact-link">texcelerators@gmail.com</a>
+              </li>
+              <li class="contact-item">
+                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                <a href="tel:+918855921249" class="contact-link">+91 8855921249</a>
+              </li>
+            </ul>
+            <div class="follow-section">
+              <h4 class="follow-title">Follow Us</h4>
+              <div class="follow-links">
+                <a href="https://www.instagram.com/texcelrators2.0_mh31/" class="follow-link" aria-label="Instagram" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@Texcelrators" class="follow-link" aria-label="YouTube" target="_blank">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="Robowars.js"></script>
+</body>
+</html>

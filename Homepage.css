@@ -586,7 +586,7 @@ body.sidebar-active #main-header {
 
 .hero {
   padding: 10rem 0 15rem;
-  height: 140vh;
+  height: 120vh;
   position: relative;
   overflow: hidden;
 }
@@ -3354,8 +3354,7 @@ animation: slideIn 0.5s ease forwards;
     max-width: 100%;
   }
 }
-/* ==
-=== STORIES FROM THE WORKSHOP SECTION ===== */
+/* ===== STORIES FROM THE WORKSHOP SECTION ===== */
 .team-stories-section {
   margin: 6rem 0 4rem 0;
   padding: 3rem 0;
@@ -3760,4 +3759,23 @@ animation: slideIn 0.5s ease forwards;
     0 0 0 1px rgba(139, 92, 246, 0.2),
     0 20px 40px rgba(0, 0, 0, 0.4),
     0 0 80px rgba(139, 92, 246, 0.1);
+}
+
+.footer-logo-link,
+.footer-logo-link:visited,
+.footer-logo-link:hover,
+.footer-logo-link:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-header {
+    text-align: center;
+}
+
+.category-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
 }
