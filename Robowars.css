@@ -1654,12 +1654,22 @@ body.sidebar-active #main-content {
   text-align: center;
 }
 
-.rw-lightbox-inner img {
-  max-width: 100%;
+/* Media container — JS injects either <img> or <video> depending on file type */
+#lightboxMediaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Both images and videos share the same visual treatment */
+#lightboxMediaContainer img,
+#lightboxMediaContainer video {
+  max-width: 90vw;
   max-height: 80vh; /* leaves room for caption below */
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 20px 80px rgba(37, 99, 235, 0.2);
+  display: block;
 }
 
 #lightboxCaption {
@@ -2884,4 +2894,15 @@ font-size: clamp(0.9rem, 2vw, 1.15rem);
 @keyframes showcaseProgress {
   from { width: 0%; }
   to   { width: 100%; }
+}
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
