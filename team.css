@@ -2335,3 +2335,113 @@
   .story-lb-prev { left: 0.5rem; top: 120px; }
   .story-lb-next { right: 0.5rem; top: 120px; }
 }
+
+
+/* ===================================================
+   BTS LIGHTBOX — full-screen viewer for Behind the Scenes cards
+   Supports images and videos. Matches Robowars lightbox style.
+   =================================================== */
+
+.story-moment { cursor: pointer; }
+.bts-card:not(.bts-card-coming) { cursor: pointer; }
+
+/* Full-screen backdrop */
+.bts-lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5, 8, 20, 0.97);
+  backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+}
+
+.bts-lightbox-overlay.active {
+  display: flex;
+}
+
+/* Inner wrapper — media + caption stacked */
+.bts-lb-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+/* Media area */
+.bts-lb-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image and video share identical visual treatment */
+.bts-lb-media img,
+.bts-lb-media video {
+  max-width: 85vw;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 80px rgba(37, 99, 235, 0.2);
+  display: block;
+}
+
+/* One-liner caption below the media */
+.bts-lb-caption {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 75vw;
+  line-height: 1.5;
+  padding: 0 1rem;
+}
+
+/* Control buttons */
+.bts-lb-close,
+.bts-lb-prev,
+.bts-lb-next {
+  position: fixed;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  color: var(--foreground);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.bts-lb-close:hover,
+.bts-lb-prev:hover,
+.bts-lb-next:hover {
+  background: rgba(37, 99, 235, 0.4);
+}
+
+.bts-lb-close { top: 1.5rem;  right: 1.5rem; }
+.bts-lb-prev  { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+.bts-lb-next  { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .bts-lb-media img,
+  .bts-lb-media video { max-width: 95vw; }
+  .bts-lb-prev  { left: 0.5rem; }
+  .bts-lb-next  { right: 0.5rem; }
+  .bts-lb-caption { font-size: 0.82rem; }
+}
+
+.footer-credit {
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  font-family: 'Outfit', sans-serif;
+  white-space: pre-line; /* respects \n line breaks in the credit string */
+  line-height: 1.7;
+}
