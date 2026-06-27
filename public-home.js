@@ -1714,3 +1714,54 @@ function initializeCardSpotlight() {
     });
   });
 }
+
+/* ── Local drone video: click to fullscreen ── */
+(function () {
+  const tile  = document.getElementById('drone-local-tile');
+  const video = document.getElementById('drone-local-video');
+  if (!tile || !video) return;
+
+  tile.style.cursor = 'pointer';
+
+  tile.addEventListener('click', function () {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen();       /* Safari */
+    } else if (video.mozRequestFullScreen) {
+      video.mozRequestFullScreen();          /* Firefox */
+    } else if (video.msRequestFullscreen) {
+      video.msRequestFullscreen();           /* IE/Edge */
+    }
+  });
+
+  /* When user exits fullscreen, keep it muted and playing */
+  document.addEventListener('fullscreenchange', function () {
+    if (!document.fullscreenElement) {
+      video.muted = true;
+      video.play();
+    }
+  });
+})();
+
+/* ===============================
+   0. SPLASH SCREEN
+   =============================== */
+(function() {
+  const splash = document.getElementById('splash-screen');
+  if (!splash) return;
+
+  // Prevent scrolling while splash is visible
+  document.body.style.overflow = 'hidden';
+
+  // Hide splash after 2.8 seconds (bar animation completes at ~2.7s)
+  setTimeout(function() {
+    splash.classList.add('splash-hidden');
+    document.body.style.overflow = '';
+
+    // Remove from DOM after fade-out completes (saves memory)
+    setTimeout(function() {
+      if (splash.parentNode) splash.parentNode.removeChild(splash);
+    }, 900);
+  }, 2800);
+})();
