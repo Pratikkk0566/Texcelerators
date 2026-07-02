@@ -1765,3 +1765,196 @@ function initializeCardSpotlight() {
     }, 900);
   }, 2800);
 })();
+
+/* ===============================
+   8. BEHIND THE SCENES SECTION
+   Filter + card interactions for the BTS grid.
+   =============================== */
+
+/* ===== BTS FILTER =====
+   Filters .bts-card elements by data-category.
+*/
+function initializeBtsFilter() {
+  var btns  = document.querySelectorAll('.bts-filter');
+  var cards = document.querySelectorAll('.bts-card:not(.bts-card-coming)');
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var filter = this.getAttribute('data-filter');
+
+      btns.forEach(function (b) { b.classList.remove('active'); });
+      this.classList.add('active');
+
+      cards.forEach(function (card) {
+        var cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.classList.remove('bts-hidden');
+          card.style.animation = 'none';
+          card.offsetHeight; // reflow
+          card.style.animation = 'btsReveal 0.35s ease forwards';
+        } else {
+          card.classList.add('bts-hidden');
+        }
+      });
+    });
+  });
+
+  // Inject reveal keyframe once
+  if (!document.getElementById('btsRevealStyle')) {
+    var s = document.createElement('style');
+    s.id = 'btsRevealStyle';
+    s.textContent = '@keyframes btsReveal { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }';
+    document.head.appendChild(s);
+  }
+}
+
+/* ===== BTS LIGHTBOX =====
+   Opens an enlarged view when any BTS card is clicked.
+   Supports keyboard (Esc / arrows) and backdrop click to close.
+*/
+function initializeBtsLightbox() {
+  var lightbox = document.getElementById('btsLightbox');
+  var lbMedia  = document.getElementById('btsLbMedia');
+  var lbCap    = document.getElementById('btsLbCaption');
+  var lbClose  = document.getElementById('btsLbClose');
+  var lbPrev   = document.getElementById('btsLbPrev');
+  var lbNext   = document.getElementById('btsLbNext');
+
+  /* Bail if lightbox HTML not present */
+  if (!lightbox || !lbMedia) return;
+
+  var cards   = [];
+  var current = 0;
+
+  /* Detect video vs image from the card's media element */
+  function getMediaType(card) {
+    return card.querySelector('.bts-media video') ? 'video' : 'image';
+  }
+
+  /* Stop and clear any playing video to prevent background audio */
+  function clearMedia() {
+    var v = lbMedia.querySelector('video');
+    if (v) { v.pause(); v.src = ''; v.load(); }
+    lbMedia.innerHTML = '';
+  }
+
+  /* Build the one-liner caption: "Title · Tag · Desc" */
+  function buildCaption(card) {
+    var titleEl = card.querySelector('.bts-title');
+    var descEl  = card.querySelector('.bts-desc');
+    var tagEl   = card.querySelector('.bts-tag');
+    var parts   = [];
+    if (titleEl) parts.push(titleEl.innerText.trim());
+    if (tagEl)   parts.push(tagEl.innerText.trim());
+    if (descEl)  parts.push(descEl.innerText.trim());
+    return parts.join(' · ');
+  }
+
+  /* Inject correct media element and update caption */
+  function showCard(idx) {
+    var card = cards[idx];
+    if (!card) return;
+
+    clearMedia();
+
+    var type = getMediaType(card);
+
+    if (type === 'video') {
+      /* Clone the card's <video> so autoplay works fresh in the lightbox */
+      var srcEl = card.querySelector('.bts-media video source');
+      var src   = srcEl ? srcEl.getAttribute('src') : '';
+      var video = document.createElement('video');
+      video.controls    = true;
+      video.autoplay    = true;
+      video.loop        = true;
+      video.playsInline = true;
+      var source = document.createElement('source');
+      source.src  = src;
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      lbMedia.appendChild(video);
+      /* Trigger play — needed on some browsers after DOM insert */
+      video.load();
+      video.play().catch(function() {});
+    } else {
+      var imgEl = card.querySelector('.bts-media img');
+      var img   = document.createElement('img');
+      img.src   = imgEl ? imgEl.getAttribute('src') : '';
+      img.alt   = imgEl ? imgEl.getAttribute('alt') : '';
+      lbMedia.appendChild(img);
+    }
+
+    lbCap.textContent = buildCaption(card);
+  }
+
+  function openLightbox(visibleCards, idx) {
+    cards   = visibleCards;
+    current = idx;
+    showCard(current);
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    clearMedia();
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /* Click any non-placeholder card to open */
+  document.querySelectorAll('.bts-card:not(.bts-card-coming)').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var visible = Array.from(
+        document.querySelectorAll('.bts-card:not(.bts-card-coming):not(.bts-hidden)')
+      );
+      var idx = visible.indexOf(card);
+      openLightbox(visible, idx >= 0 ? idx : 0);
+    });
+  });
+
+  /* Close on button or backdrop click */
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  /* Prev / Next */
+  lbPrev.addEventListener('click', function () {
+    current = (current - 1 + cards.length) % cards.length;
+    showCard(current);
+  });
+  lbNext.addEventListener('click', function () {
+    current = (current + 1) % cards.length;
+    showCard(current);
+  });
+
+  /* Keyboard nav */
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  { current = (current - 1 + cards.length) % cards.length; showCard(current); }
+    if (e.key === 'ArrowRight') { current = (current + 1) % cards.length; showCard(current); }
+  });
+
+  /* Touch swipe */
+  var touchStartX = 0;
+  lightbox.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].screenX; });
+  lightbox.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      current = dx > 0
+        ? (current - 1 + cards.length) % cards.length
+        : (current + 1) % cards.length;
+      showCard(current);
+    }
+  });
+}
+
+/* ===== BTS STANDALONE INIT =====
+   Runs independently of the main DOMContentLoaded to guarantee
+   initializeBtsFilter and initializeBtsLightbox always execute.
+*/
+document.addEventListener('DOMContentLoaded', function () {
+  initializeBtsFilter();
+  initializeBtsLightbox();
+});
