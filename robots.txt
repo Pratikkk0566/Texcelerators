@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://texcelerators.com/sitemap.xml
+Sitemap: https://texcelrators.stvincentngp.edu.in/sitemap.xml

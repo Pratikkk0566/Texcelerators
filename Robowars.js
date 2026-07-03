@@ -844,8 +844,8 @@ function initializeShowcase() {
   var captions = [
     'Competition Ready',
     'Blueprint & Design',
-    'Acrylic Prototype',
-    'Quark Arena — BITS Goa',
+    'Chassis Prototype',
+    'Bot with Bolts',
     'Podium Finish 🏆'
   ];
 

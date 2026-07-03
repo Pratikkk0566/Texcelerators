@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-  <title>Our Team | Texcelrators Robotics Club</title>
-  <meta name="description" content="Meet the talented team behind Texcelrators Robotics Club - innovators, engineers, and visionaries shaping the future of robotics.">
-  <meta name="keywords" content="robotics team, Texcelrators members, robotics engineers, technology experts, innovation team, Texcelrators Robo Club , Roboclub , Svpcet robotics club">
+  <title>Our Team | Texcelrators – SVPCET Robo Club Nagpur | St. Vincent Pallotti College</title>
+  <meta name="description" content="Meet the Texcelrators team – the student engineers and builders behind SVPCET Nagpur's official Robo Club. Our members compete in RoboWars, IIT Techfest, BITS Goa, and national robotics events from St. Vincent Pallotti College.">
+  <meta name="keywords" content="Texcelrators team, SVPCET Robo Club team, SVPCET robotics team, Nagpur robotics club members, SVPCET club members, robo club Nagpur team, combat robotics engineers Nagpur, Texcelrators members SVPCET">
   <meta name="author" content="Texcelrators Robotics Team">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://http://texcelrators.stvincentngp.edu.in/team.html" />
+  <link rel="canonical" href="https://texcelrators.stvincentngp.edu.in/Team.html" />
   <link rel="icon" href="Assets/images/Nav-Side-Footer/MainLogo.png" type="image/x-icon" />
   
   <!-- Open Graph Tags for Social Media -->
-  <meta property="og:title" content="Meet Our Team | Texcelrators Robotics Club">
+  <meta property="og:title" content="Our Team | Texcelrators – SVPCET Robo Club, Nagpur">
   <meta property="og:description" content="Discover the talented engineers, designers and programmers behind our award-winning robotics innovations.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://texcelrators.com/Assets/images/Nav-Side-Footer/MainLogo.png">
-  <meta property="og:url" content="https://http://texcelrators.stvincentngp.edu.in/team.html">
+  <meta property="og:image" content="https://texcelrators.stvincentngp.edu.in/Assets/images/Nav-Side-Footer/MainLogo.png">
+  <meta property="og:url" content="https://texcelrators.stvincentngp.edu.in/Team.html">
   
   
   <!-- Fonts -->
@@ -25,16 +25,25 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="team.css">
+  <link rel="stylesheet" href="Homepage.css">
   
-  <!-- Structured Data for SEO -->
+  <!-- Structured  Data for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": ["Organization", "SportsTeam"],
     "name": "Texcelrators Robotics Club",
-    "description": "Student-led robotics club of SVPCET Nagpur. We compete nationally in RoboWars, RoboSoccer, and autonomous robotics events.",
-    "url": "https://http://texcelrators.stvincentngp.edu.in/team.html",
-    "logo": "https://http://texcelrators.stvincentngp.edu.in/Assets/images/Nav-Side-Footer/MainLogo.png",
+    "alternateName": ["Texcelrators", "SVPCET Robo Club", "SVPCET Robotics Club", "Nagpur Robotics Club", "Robo Club SVPCET"],
+    "description": "Texcelrators is the official Robo Club of SVPCET Nagpur (St. Vincent Pallotti College of Engineering & Technology). We compete nationally in RoboWars, RoboSoccer, and autonomous robotics events.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nagpur",
+      "addressRegion": "Maharashtra",
+      "postalCode": "441108",
+      "addressCountry": "IN"
+    },
+    "url": "https://texcelrators.stvincentngp.edu.in/Team.html",
+    "logo": "https://texcelrators.stvincentngp.edu.in/Assets/images/Nav-Side-Footer/MainLogo.png",
     "sport": "Robotics",
     "memberOf": {
       "@type": "EducationalOrganization",
@@ -48,13 +57,71 @@
       }
     },
     "sameAs": [
-      "https://www.instagram.com/texcelrators_svpcet"
+      "https://www.instagram.com/texcelrators2.0_mh31/",
+      "https://www.youtube.com/@Texcelrators"
     ]
   }
   </script>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Team | Texcelrators Robotics Club – SVPCET Nagpur" />
+  <meta name="twitter:description" content="Meet the engineers, designers and programmers behind Texcelrators – SVPCET Nagpur's combat robotics club." />
+  <meta name="twitter:image" content="https://texcelrators.stvincentngp.edu.in/Assets/images/Nav-Side-Footer/MainLogo.png" />
 </head>
 <body>
- 
+
+<!-- ===== TEAM SPLASH SCREEN ===== -->
+<div id="splash-screen">
+  <div class="splash-particles">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="splash-content">
+    <!-- Orbit ring -->
+    <div class="splash-orbit">
+      <div class="splash-orbit-dot"></div>
+    </div>
+
+    <!-- Logo -->
+    <div class="splash-logo">
+      <img src="Assets/images/Nav-Side-Footer/MainLogo.png" alt="Texcelrators">
+    </div>
+
+    <!-- Text -->
+    <div class="splash-text">
+      <span class="splash-club-name font-addition">
+        <span class="splash-tex">OUR</span>&nbsp;TEAM
+      </span>
+      <span class="splash-tagline font-addition">The Builders · SVPCET</span>
+    </div>
+
+    <!-- Loading bar -->
+    <div class="splash-bar-track">
+      <div class="splash-bar-fill"></div>
+    </div>
+
+    <p class="splash-status font-tech">Assembling the Crew...</p>
+  </div>
+</div>
+<!-- ===== END TEAM SPLASH SCREEN ===== -->
+
+<script>
+  (function () {
+    var splash = document.getElementById('splash-screen');
+    if (!splash) return;
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () {
+      splash.classList.add('splash-hidden');
+      document.body.style.overflow = '';
+      setTimeout(function () {
+        if (splash.parentNode) splash.parentNode.removeChild(splash);
+      }, 900);
+    }, 2800);
+  })();
+</script>
+
 <!-- Navigation Header -->
 <!-- ===== NAVIGATION HEADER ===== -->
 <header id="main-header">
@@ -1120,6 +1187,110 @@
     </div>
   </section>
 
+  
+<!-- Stories from the Workshop Section -->
+<section class="section">
+<div id="kahani" class="team-stories-section animate-on-scroll">
+  <div class="container">
+    <div class="category-header animate-on-scroll">
+        <div class="category-badge" class="stories-title">
+          <i class="fas fa-book"></i>
+         Story Time !
+        </div>
+        <h2 class="section-title">Stories from the <span>Workshop</span></h2>
+        <p class="category-description">
+          These aren't just stories about bots — they're stories about us.
+          Of teamwork that clicked, mistakes we grew from, and pressure that revealed our potential. <br>
+         <b>Tap a story to read how every build shaped who we are today</b>
+        </p>
+      </div>
+    <!-- Personal stories from team members about memorable build moments -->
+      
+      <div  class="stories-grid">
+        <!-- Story 1: Breakthrough Moment -->
+        <div class="story-card" data-story="breakthrough">
+          <div class="story-image">
+            <img src="Assets/images/Robots/Story/Sail.webp" alt="Breakthrough moment" loading="lazy">
+            <div class="story-overlay"></div>
+          </div> 
+          <div class="story-content">
+            <h4>"🚤 When the Waters Turned"</h4>
+            <p class="story-author">- , Core Member</p>
+            <p class="story-preview">"The boats looked fast. They felt right. But when it came to turning — we were stuck… until two minds quietly changed the game. . ."</p>
+            <div class="story-tags">
+              <span class="tag">#NightOwl</span>
+              <span class="tag">#Breakthrough</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2: Learning Experience -->
+        <div class="story-card" data-story="learning">
+          <div class="story-image">
+            <img src="Assets/images/Robots/Story/Acrylic.webp" alt="Learning experience" loading="lazy">
+            <div class="story-overlay">
+            </div>
+          </div>
+          <div class="story-content">
+            <h4>"🚫 No Backup. No Victory"</h4>
+            <p class="story-author">- Ashutosh Maske , Mentor</p>
+            <p class="story-preview">"In the quiet before the storm, we didn't see the breaking point coming .  .  ."</p>
+            <div class="story-tags">
+              <span class="tag">#LearningMoment</span>
+              <span class="tag">#Resilience</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3: Team Collaboration -->
+        <div class="story-card" data-story="teamwork">
+          <div class="story-image">
+            <img src="Assets/images/Robots/Story/Quark.webp" alt="Team collaboration" loading="lazy">
+            <div class="story-overlay">
+            </div>
+          </div>
+          <div class="story-content">
+            <h4>"⚙️ From Chaos to Combat"</h4>
+            <p class="story-author">- Arnav Borikar, Designing Lead</p>
+            <p class="story-preview">"The bots weren't ready — but we were
+              and that made all the difference at Quark 2025. . ."</p>
+            <div class="story-tags">
+              <span class="tag">#Teamwork</span>
+              <span class="tag">#Innovation</span>
+            </div>
+          </div>
+        </div>
+      
+
+<!-- Story 4: RoboWars Hyderabad -->
+<div class="story-card" data-story="hyderabad">
+    <div class="story-image">
+        <img src="Assets/images/Robots/Story/Hyd.webp"
+             alt="RoboWars Hyderabad"
+             loading="lazy">
+        <div class="story-overlay"></div>
+    </div>
+    <div class="story-content">
+        <h4>⚙️ Every Battle Leaves an Upgrade</h4>
+        <p class="story-author">
+            Devanshu Ekhar , Management Lead
+        </p>
+        <p class="story-preview">
+            Two victories. One bot destroyed in flames. A semi-final run cut short by time. The battle upgraded more than our machine...
+        </p>
+        <div class="story-tags">
+            <span class="tag">#RoboWars2026</span>
+            <span class="tag">#Hyderabad</span>
+            <span class="tag">#15kgBot</span>
+        </div>
+    </div>
+</div>
+</div>
+   </div> 
+</div>
+</section>
+
+
   <!-- Behind the Scenes Section -->
 <section id="behind-scenes" class="bts-section">
   <div class="container">
@@ -1230,28 +1401,7 @@
       
 
        <!-- Card 1: Video - Capacitor Birthday -->
-      <div class="bts-card animate-on-scroll" data-category="workshop">
-        <div class="bts-media">
-          <video autoplay loop muted playsinline preload="auto">
-            <source src="Assets/images/Team/Behind The Scenes/Dronelaunch.mp4" type="video/mp4">
-          </video>
-          <div class="bts-expand-hint"><i class="fas fa-expand-alt"></i></div>
-        </div>
-        <div class="bts-caption">
-          <div class="bts-caption-top">
-            <span class="bts-tag workshop"><i class="fas fa-fire"></i> Workshop</span>
-            <span class="bts-time"><i class="fas fa-clock"></i> 2:30 AM &middot; Mar 15</span>
-          </div>
-          <h4 class="bts-title"> Sideways Drone Launch</h4>
-          <p class="bts-desc">Why launch drone straight when you can launch it sideways?</p>
-        </div>
-        <div class="bts-lightbox-data" hidden>
-          <span class="challenge-level high"><i class="fas fa-fire"></i> All-Nighter</span>
-          <span class="team-count"><i class="fas fa-users"></i> 4 Members</span>
-          <span class="mood-indicator">&#9749; 6th Coffee</span>
-        </div>
-      </div>
-
+     
 
        <!-- Card 1: Video - Capacitor Birthday -->
       <div class="bts-card animate-on-scroll" data-category="workshop">
@@ -1271,23 +1421,7 @@
         </div>
       </div>
 
-          <div class="bts-card bts-card-wide animate-on-scroll" data-category="testing">
-        <div class="bts-media">
-           <video autoplay loop muted playsinline preload="auto">
-            <source src="Assets/images/Team/Behind The Scenes/DroneAgri.mp4" type="video/mp4">
-          </video>
-          <div class="bts-expand-hint"><i class="fas fa-expand-alt"></i></div>
-        </div>
-        <div class="bts-caption">
-          <div class="bts-caption-top">
-            <span class="bts-tag testing"><i class="fas fa-star"></i> Project</span>
-            <span class="bts-time"><i class="fas fa-clock"></i> 6:15 PM &middot; Mar 12</span>
-          </div>
-          <h4 class="bts-title">New Project, New Challenges </h4>
-          <div class="bts-desc">Our journey continues beyond building an agricultural drone—we are now engineering advanced technologies and intelligent features that will shape the next generation of precision farming solutions.
-          </div>
-        </div>
-      </div>
+          
 
 
       <div class="bts-card bts-card-wide animate-on-scroll" data-category="testing">
@@ -1412,14 +1546,15 @@
               <ul class="footer-links">
                 <li class="footer-link-item">
                   <a href="index.html" class="footer-link">Home</a>
+                </li>
+                <li class="footer-link-item">
+                  <a href="index.html#achivements" class="footer-link">Achievements</a>
+                </li>
+                <li class="footer-link-item">
+                  <a href="Team.html" class="footer-link">Team</a>
+                </li>
                   <li class="footer-link-item">
-                    <a href="index.html#achivements" class="footer-link">Achievements</a>
-                  </li>
-                  <li class="footer-link-item">
-                    <a href="Team.html" class="footer-link">Team</a>
-                  </li>
-                  <li class="footer-link-item">
-                    <a href="robowars.html" class="footer-link">RoboWars</a>
+                    <a href="Robowars.html" class="footer-link">RoboWars</a>
                   </li>
                   <li class="footer-link-item">
                     <a href="index.html#bots" class="footer-link">Our Robots</a>
@@ -1506,5 +1641,6 @@
 
   <!-- ===== JAVASCRIPT ===== -->
   <script src="public-team.js"></script>
+  <script src="public-home.js"></script>
 </body>
 </html>

@@ -4238,3 +4238,16 @@ animation: slideIn 0.5s ease forwards;
 /* ========================
    END SPLASH SCREEN
    ======================== */
+/* ===== SEO UTILITY ===== */
+/* Visually hidden but readable by search engines and screen readers */
+.seo-h1-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
